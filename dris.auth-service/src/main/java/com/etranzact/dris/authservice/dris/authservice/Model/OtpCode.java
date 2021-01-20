@@ -5,13 +5,15 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="otp_code")
 public class OtpCode {
     @Id
     private long id;
     private String user_email;
     private int validityPeriodInMinutes;
-    private String status;
+    private final String status = "active";
 
 }

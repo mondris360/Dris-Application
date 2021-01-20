@@ -2,10 +2,12 @@ package com.etranzact.dris.authservice.dris.authservice.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
 @Entity
-public class Previous_Password {
+@Table(name="previous_password")
+public class PreviousPassword {
     @Id
     private long id;
     private String user_email;
