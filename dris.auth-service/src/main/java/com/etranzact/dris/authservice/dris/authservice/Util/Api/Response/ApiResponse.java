@@ -1,4 +1,4 @@
-package com.etranzact.dris.authservice.dris.authservice.Util;
+package com.etranzact.dris.authservice.dris.authservice.Util.Api.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

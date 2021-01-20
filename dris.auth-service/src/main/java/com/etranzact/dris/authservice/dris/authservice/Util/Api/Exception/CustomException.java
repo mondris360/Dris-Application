@@ -1,4 +1,4 @@
-package com.etranzact.dris.authservice.dris.authservice.Util.Exception;
+package com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
