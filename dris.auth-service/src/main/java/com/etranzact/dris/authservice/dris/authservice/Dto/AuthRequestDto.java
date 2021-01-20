@@ -1,13 +1,8 @@
 package com.etranzact.dris.authservice.dris.authservice.Dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.etranzact.dris.authservice.dris.authservice.Dto.BaseDto.BaseDto;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class AuthRequestDto {
-    private  String email;
-    private  String password;
+
+public class AuthRequestDto extends BaseDto {
+
 }
