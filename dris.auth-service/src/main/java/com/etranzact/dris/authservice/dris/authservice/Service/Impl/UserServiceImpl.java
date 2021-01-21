@@ -1,6 +1,5 @@
 package com.etranzact.dris.authservice.dris.authservice.Service.Impl;
 
-import com.etranzact.dris.authservice.dris.authservice.Dto.AuthRequestDto;
 import com.etranzact.dris.authservice.dris.authservice.Dto.SignUpRequestDto;
 import com.etranzact.dris.authservice.dris.authservice.Service.UserService;
 import com.etranzact.dris.authservice.dris.authservice.Util.Api.Response.ApiResponse;
