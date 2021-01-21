@@ -1,5 +1,8 @@
 package com.etranzact.dris.authservice.dris.authservice.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,6 +15,9 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
     private  String email;
