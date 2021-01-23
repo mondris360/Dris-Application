@@ -12,5 +12,4 @@ import java.util.Set;
 public class UserResponseDto {
     private String email;
     private String jwtToken;
-    private Set<?> authorities;
 }

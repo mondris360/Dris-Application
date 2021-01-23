@@ -8,6 +8,7 @@ import com.etranzact.dris.authservice.dris.authservice.Model.User;
 import com.etranzact.dris.authservice.dris.authservice.Repository.UserRepository;
 import com.etranzact.dris.authservice.dris.authservice.Service.UserService;
 import com.etranzact.dris.authservice.dris.authservice.Util.Api.Response.ApiResponse;
+import com.etranzact.dris.authservice.dris.authservice.Util.JwtToken;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,12 +32,13 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Resource
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Resource
+    private JwtToken jwtToken;
 
     @Override
     // method to create a new user
     public ResponseEntity<ApiResponse> createUser(@Valid SignUpRequestDto requestDto) {
         ApiResponse apiResponse;
-        List<UserResponseDto> data;
 
         try {
             // check if the user already exist
@@ -46,11 +48,9 @@ public class UserServiceImpl implements UserService {
 
             } else {
                 User user = convertToModel(requestDto);
-                final User createdUser = userRepository.save(user);
-                UserResponseDto userResponseDto =  convertToUserResponseDto(createdUser);
-                data = new ArrayList<>();
-                data.add(userResponseDto);
-                apiResponse = new ApiResponse("Successful", HttpStatus.CREATED, "User Created", "AWSS5415C", data);
+                String token =   jwtToken.generateToken(user);
+                userRepository.save(user);
+                apiResponse = new ApiResponse("Successful", HttpStatus.CREATED, "User Created", token);
             }
 
         } catch (Exception e) {
@@ -68,18 +68,22 @@ public class UserServiceImpl implements UserService {
         ApiResponse apiResponse;
         try {
             final User user = userRepository.getByEmail(request.getEmail());
-            if (user == null){
+            if (user == null) {
                 apiResponse = new ApiResponse("Failed", HttpStatus.CONFLICT, "User Already Exists");
+
+            } else if (!user.isEnabled()) {
+                apiResponse = new ApiResponse("Failed", HttpStatus.OK, "Account is not active");
             } else {
-                boolean passwordIsValid =  bCryptPasswordEncoder.matches(request.getPassword(), user.getPassword());
-                System.out.println("passwordIsValid:"+ passwordIsValid);
-                if(passwordIsValid){
-                    apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Login SuccessFul", "XXXXXXXX", user);
+                // validate the password using bcrypt
+                boolean passwordIsValid = bCryptPasswordEncoder.matches(request.getPassword(), user.getPassword());
+                if (passwordIsValid) {
+                    String token = jwtToken.generateToken(user);
+                    apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Login SuccessFul", token);
                 } else {
-                    apiResponse =  new ApiResponse("Failed", HttpStatus.OK, "Invalid Login");
+                    apiResponse = new ApiResponse("Failed", HttpStatus.OK, "Invalid Login");
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             apiResponse = new ApiResponse("Failed", HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
             log.info(e.getMessage());
         }
@@ -87,20 +91,18 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     // method to convert signUp Dto to signUp model
-    private User convertToModel(@Valid  SignUpRequestDto requestDto) {
+    private User convertToModel(@Valid SignUpRequestDto requestDto) {
         User user = new User();
-        String encodedPassword  =  bCryptPasswordEncoder.encode(requestDto.getPassword());
+        String encodedPassword = bCryptPasswordEncoder.encode(requestDto.getPassword());
         user.setPassword(encodedPassword);
         user.setEmail(requestDto.getEmail());
         user.setAuthorities(requestDto.getAuthorities());
         return user;
     }
 
-
-    //  method to convert ModelToUserResponseDto
-    public UserResponseDto convertToUserResponseDto(User request){
-        return new UserResponseDto(request.getEmail(), request.getPassword(), request.getAuthorities());
-    }
+//    //  method to convert ModelToUserResponseDto
+//    public UserResponseDto convertToUserResponseDto(User request) {
+//        return new UserResponseDto(request.getEmail(), request.getPassword());
+//    }
 }

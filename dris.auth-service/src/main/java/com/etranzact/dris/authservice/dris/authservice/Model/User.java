@@ -21,10 +21,10 @@ public class User {
     private  String email;
     private  String password;
     private  boolean enabled = false;
-    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="user_email")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<PreviousPassword> previousPasswords;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_email")
     private  Set<Authority> authorities;
     @CreationTimestamp
