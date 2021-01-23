@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Set;
@@ -18,16 +15,21 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name ="users")
 public class User {
     @Id
     private  String email;
     private  String password;
-    private final String status = "inactive";
-    private String role;
+    private  boolean enabled = false;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="user_email")
+    private Set<PreviousPassword> previousPasswords;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_email")
+    private  Set<Authority> authorities;
     @CreationTimestamp
     private Timestamp created_at;
     @UpdateTimestamp
     private Timestamp updated_at;
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<PreviousPassword> previousPasswords;
+
 }

@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name="previous_password")
+@Table(name="previous_passwords")
 public class PreviousPassword {
     @Id
     private long id;
@@ -15,6 +15,6 @@ public class PreviousPassword {
     private final String status ="changed";
     private Timestamp changed_at;
     @ManyToOne
-    private  User user;
+    private User user;
 
 }
