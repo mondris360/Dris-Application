@@ -27,11 +27,6 @@ public class AuthController {
         return userService.login(request);
     }
 
-//    @PostMapping("/login")
-//    public String login(@RequestBody AuthRequest2 authRequest2) {
-//        UserCredentialsDataSourceAdapter user =  new UserCredentialsDataSourceAdapter();
-//
-//    }
 
     @GetMapping("/")
     public String allUsers(){
