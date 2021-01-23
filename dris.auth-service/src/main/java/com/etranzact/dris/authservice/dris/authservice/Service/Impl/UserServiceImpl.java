@@ -1,29 +1,27 @@
 package com.etranzact.dris.authservice.dris.authservice.Service.Impl;
 
 import com.etranzact.dris.authservice.dris.authservice.Dto.AuthRequestDto;
+import com.etranzact.dris.authservice.dris.authservice.Dto.ChangePassRequestDto;
 import com.etranzact.dris.authservice.dris.authservice.Dto.SignUpRequestDto;
-import com.etranzact.dris.authservice.dris.authservice.Dto.UserResponseDto;
-import com.etranzact.dris.authservice.dris.authservice.Model.Authority;
+import com.etranzact.dris.authservice.dris.authservice.Model.PreviousPassword;
 import com.etranzact.dris.authservice.dris.authservice.Model.User;
 import com.etranzact.dris.authservice.dris.authservice.Repository.UserRepository;
 import com.etranzact.dris.authservice.dris.authservice.Service.UserService;
 import com.etranzact.dris.authservice.dris.authservice.Util.Api.Response.ApiResponse;
 import com.etranzact.dris.authservice.dris.authservice.Util.JwtToken;
+import com.fasterxml.jackson.databind.util.BeanUtil;
+import javassist.bytecode.stackmap.BasicBlock;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -45,19 +43,19 @@ public class UserServiceImpl implements UserService {
             final User userExists = userRepository.getByEmail(requestDto.getEmail());
             if (userExists != null) {
                 apiResponse = new ApiResponse("Failed", HttpStatus.CONFLICT, "User Already Exists");
-
             } else {
-                User user = convertToModel(requestDto);
+                User user = new User();
+                // copy the values of requestDTO to user
+                BeanUtils.copyProperties(requestDto, user);
                 String token =   jwtToken.generateToken(user);
+                user.setPassword(bCryptPasswordEncoder.encode(requestDto.getPassword()));
                 userRepository.save(user);
                 apiResponse = new ApiResponse("Successful", HttpStatus.CREATED, "User Created", token);
             }
-
         } catch (Exception e) {
             apiResponse = new ApiResponse("Failed", HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
             log.info(e.getMessage());
         }
-
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
@@ -66,13 +64,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<ApiResponse> login(@Valid AuthRequestDto request) {
         ApiResponse apiResponse;
+
         try {
             final User user = userRepository.getByEmail(request.getEmail());
             if (user == null) {
                 apiResponse = new ApiResponse("Failed", HttpStatus.CONFLICT, "User Already Exists");
-
-            } else if (!user.isEnabled()) {
-                apiResponse = new ApiResponse("Failed", HttpStatus.OK, "Account is not active");
             } else {
                 // validate the password using bcrypt
                 boolean passwordIsValid = bCryptPasswordEncoder.matches(request.getPassword(), user.getPassword());
@@ -80,7 +76,7 @@ public class UserServiceImpl implements UserService {
                     String token = jwtToken.generateToken(user);
                     apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Login SuccessFul", token);
                 } else {
-                    apiResponse = new ApiResponse("Failed", HttpStatus.OK, "Invalid Login");
+                    apiResponse = new ApiResponse("Failed", HttpStatus.OK, "Invalid Login Details");
                 }
             }
         } catch (Exception e) {
@@ -91,18 +87,45 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    // method to convert signUp Dto to signUp model
-    private User convertToModel(@Valid SignUpRequestDto requestDto) {
-        User user = new User();
-        String encodedPassword = bCryptPasswordEncoder.encode(requestDto.getPassword());
-        user.setPassword(encodedPassword);
-        user.setEmail(requestDto.getEmail());
-        user.setAuthorities(requestDto.getAuthorities());
-        return user;
+    // method to change user password
+    @Override
+    public ResponseEntity<ApiResponse> changePassword(@Valid ChangePassRequestDto request) {
+        ApiResponse apiResponse = null;
+        try {
+            final User user = userRepository.getByEmail(request.getEmail());
+            boolean passwordIsValid = bCryptPasswordEncoder.matches(request.getPassword(), user.getPassword());
+            if(!passwordIsValid){
+                apiResponse =  new ApiResponse("Failed", HttpStatus.NOT_FOUND, "Invalid Login Details");
+                // if the current password is equal to the new password
+            } else if(request.getPassword().equals(request.getNewPassword())) {
+                apiResponse = new ApiResponse("Failed", HttpStatus.BAD_REQUEST, "Your new password must be different " +
+                        "from your current password");
+                // if the user is changing to a previously used  password
+            } else if(isAPreviousPassword(user, request.getNewPassword())) {
+                apiResponse = new ApiResponse("Failed", HttpStatus.BAD_REQUEST, "You cannot" +
+                        "change to a previously used password");
+            } else {
+                String encodedNewPassword =  bCryptPasswordEncoder.encode(request.getNewPassword());
+                String encodedCurrentPassword =  user.getPassword();
+                user.setPassword(encodedNewPassword);
+                Set<PreviousPassword> data =  new HashSet<>();
+                data.add(new PreviousPassword(encodedCurrentPassword));
+                user.setPreviousPasswords(data);
+                final User updatedUser = userRepository.save(user);
+                apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Password Changed Successfully");
+            }
+        } catch(Exception e) {
+             apiResponse = new ApiResponse("Failed", HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+             log.info(e.getMessage());
+        }
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
-//    //  method to convert ModelToUserResponseDto
-//    public UserResponseDto convertToUserResponseDto(User request) {
-//        return new UserResponseDto(request.getEmail(), request.getPassword());
-//    }
+    // method to check if user has used  the new password before
+    private boolean isAPreviousPassword(User user,  String newPassword){
+        System.out.println("newPassword" + newPassword);
+        System.out.println("newPassword" + user.getPreviousPasswords());
+        return user.getPreviousPasswords().stream()
+                .anyMatch(previousPassword -> bCryptPasswordEncoder.matches(newPassword, previousPassword.getNewPassword()));
+    }
 }

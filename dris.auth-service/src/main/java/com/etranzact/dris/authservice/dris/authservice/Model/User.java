@@ -8,7 +8,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,8 +20,8 @@ public class User {
     private  String email;
     private  String password;
     private  boolean enabled = false;
-    @JoinColumn(name="user_email")
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="user_email")
     private Set<PreviousPassword> previousPasswords;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_email")

@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PrevPassRepository extends JpaRepository<PreviousPassword, Long> {
-    List<PreviousPassword> getAllByUser_email(String email);
+//    List<PreviousPassword> getAllBy
+//    List<PreviousPassword> getAllByUser_email(String email);
 }
