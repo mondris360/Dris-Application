@@ -10,8 +10,7 @@ import com.etranzact.dris.authservice.dris.authservice.Repository.UserRepository
 import com.etranzact.dris.authservice.dris.authservice.Service.UserService;
 import com.etranzact.dris.authservice.dris.authservice.Util.Api.Response.ApiResponse;
 import com.etranzact.dris.authservice.dris.authservice.Util.JwtToken;
-import com.fasterxml.jackson.databind.util.BeanUtil;
-import javassist.bytecode.stackmap.BasicBlock;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
