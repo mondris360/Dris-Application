@@ -109,7 +109,7 @@ public class UserServiceImpl implements UserService {
                 String encodedCurrentPassword =  user.getPassword();
                 user.setPassword(encodedNewPassword);
                 Set<PreviousPassword> data =  new HashSet<>();
-                data.add(new PreviousPassword(encodedCurrentPassword));
+                data.add(new PreviousPassword(encodedCurrentPassword, user));
                 user.setPreviousPasswords(data);
                 final User updatedUser = userRepository.save(user);
                 apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Password Changed Successfully");
@@ -121,10 +121,8 @@ public class UserServiceImpl implements UserService {
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
-    // method to check if user has used  the new password before
+    // method to check if the user has used  the new password before
     private boolean isAPreviousPassword(User user,  String newPassword){
-        System.out.println("newPassword" + newPassword);
-        System.out.println("newPassword" + user.getPreviousPasswords());
         return user.getPreviousPasswords().stream()
                 .anyMatch(previousPassword -> bCryptPasswordEncoder.matches(newPassword, previousPassword.getNewPassword()));
     }

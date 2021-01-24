@@ -17,8 +17,6 @@ public class Authority {
     @GeneratedValue
     private int id;
     private String authority;
-//    @ManyToOne()
-//    private User user;
 
     public Authority(String authority) {
         this.authority = authority;
