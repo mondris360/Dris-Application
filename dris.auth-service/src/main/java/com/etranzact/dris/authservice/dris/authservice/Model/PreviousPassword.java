@@ -19,7 +19,7 @@ public class PreviousPassword {
     private String newPassword;
     private final String status ="changed";
     @ManyToOne
-    @JoinColumn(name = "user_email")
+    @JoinColumn(name = "user_fk")
     private User user;
     @CreationTimestamp
     private Timestamp changed_at;

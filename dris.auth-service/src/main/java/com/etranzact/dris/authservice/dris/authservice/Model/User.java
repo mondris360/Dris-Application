@@ -21,8 +21,7 @@ public class User {
     private  boolean enabled = false;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<PreviousPassword> previousPasswords;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_email")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private  Set<Authority> authorities;
     @CreationTimestamp
     private Timestamp created_at;
