@@ -29,7 +29,7 @@ public class MyUserDetails implements UserDetails {
      public MyUserDetails(User user) {
          email =  user.getEmail();
          password = user.getPassword();
-         isEnabled = user.isEnabled();
+         isEnabled = user.getEnabled();
          authorities = user.getAuthorities().stream()
                  .map(role -> new SimpleGrantedAuthority(role.getAuthority()))
                  .collect(Collectors.toList());

@@ -1,5 +1,6 @@
 package com.etranzact.dris.authservice.dris.authservice.Service.Impl;
 
+import com.etranzact.dris.authservice.dris.authservice.Dto.AccountStatusDto;
 import com.etranzact.dris.authservice.dris.authservice.Dto.AuthRequestDto;
 import com.etranzact.dris.authservice.dris.authservice.Dto.ChangePassRequestDto;
 import com.etranzact.dris.authservice.dris.authservice.Dto.SignUpRequestDto;
@@ -68,7 +69,7 @@ public class UserServiceImpl implements UserService {
         try {
             final User user = userRepository.getByEmail(request.getEmail());
             if (user == null) {
-                apiResponse = new ApiResponse("Failed", HttpStatus.CONFLICT, "User Already Exists");
+                apiResponse = new ApiResponse("Failed", HttpStatus.CONFLICT, "Invalid Login Details");
             } else {
                 // validate the password using bcrypt
                 boolean passwordIsValid = bCryptPasswordEncoder.matches(request.getPassword(), user.getPassword());
@@ -114,12 +115,47 @@ public class UserServiceImpl implements UserService {
                 final User updatedUser = userRepository.save(user);
                 apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Password Changed Successfully");
             }
+
         } catch(Exception e) {
              apiResponse = new ApiResponse("Failed", HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
              log.info(e.getMessage());
         }
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
+
+    // method  to activate or disable user's account (only a user with HR role can call this method from the user service)
+    @Override
+    public ResponseEntity<ApiResponse> updateAccountStatus(@ Valid AccountStatusDto request) {
+        ApiResponse apiResponse;
+
+        try {
+            final User user = userRepository.getByEmail(request.getEmail());
+            if (user == null){
+                apiResponse = new ApiResponse("Failed", HttpStatus.BAD_REQUEST, "Invalid Email Address");
+                // check if  current account status and new account status are the same
+            } else if (user.getEnabled() ==  request.getIsActivate()){
+
+                if(user.getEnabled()){
+                    apiResponse = new ApiResponse("Failed",  HttpStatus.BAD_REQUEST, "Account is Already Active");
+                } else {
+                    apiResponse = new ApiResponse("Failed",  HttpStatus.BAD_REQUEST, "Account is Already Inactive");
+                }
+
+            } else {
+                String typeOfUpdate =  request.getIsActivate() ? "Activation" : "Deactivation";
+                user.setEnabled(request.getIsActivate());
+                userRepository.save(user);
+                apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Account " + typeOfUpdate + " Was " + " Successful");
+            }
+
+        } catch ( Exception e){
+            apiResponse = new ApiResponse("Failed", HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+            log.info(e.getMessage());
+        }
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
 
     // method to check if the user has used  the new password before
     private boolean isAPreviousPassword(User user,  String newPassword){

@@ -1,5 +1,6 @@
 package com.etranzact.dris.authservice.dris.authservice.Service;
 
+import com.etranzact.dris.authservice.dris.authservice.Dto.AccountStatusDto;
 import com.etranzact.dris.authservice.dris.authservice.Dto.AuthRequestDto;
 import com.etranzact.dris.authservice.dris.authservice.Dto.ChangePassRequestDto;
 import com.etranzact.dris.authservice.dris.authservice.Dto.SignUpRequestDto;
@@ -12,4 +13,5 @@ public interface UserService {
     ResponseEntity<ApiResponse> createUser(SignUpRequestDto request);
     ResponseEntity<ApiResponse> login(AuthRequestDto request);
     ResponseEntity<ApiResponse> changePassword(ChangePassRequestDto request);
+    ResponseEntity<ApiResponse> updateAccountStatus(AccountStatusDto request);
 }

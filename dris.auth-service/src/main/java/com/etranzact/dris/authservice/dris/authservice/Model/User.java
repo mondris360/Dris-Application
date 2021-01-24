@@ -18,7 +18,7 @@ public class User {
     @Id
     private  String email;
     private  String password;
-    private  boolean enabled = false;
+    private  Boolean enabled = false;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<PreviousPassword> previousPasswords;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
