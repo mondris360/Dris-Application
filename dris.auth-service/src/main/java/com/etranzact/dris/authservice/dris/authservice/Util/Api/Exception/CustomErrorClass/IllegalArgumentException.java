@@ -1,4 +1,4 @@
-package com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception;
+package com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +10,13 @@ import org.springframework.http.HttpStatus;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomException extends RuntimeException {
+public class IllegalArgumentException extends RuntimeException {
     private String message;
     private HttpStatus statusCode;
+    private  String path;
 
+    public IllegalArgumentException(String message, String path){
+        this.message = message;
+        this.path = path;
+    }
 }

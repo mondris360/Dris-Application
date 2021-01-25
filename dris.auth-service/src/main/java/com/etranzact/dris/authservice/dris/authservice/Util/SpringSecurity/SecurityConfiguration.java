@@ -14,16 +14,15 @@ import javax.sql.DataSource;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private UserDetailsService userDetailsService;
 
-    @Override
-    // configure authentication
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      auth.userDetailsService(userDetailsService)
-              .passwordEncoder(bCryptPasswordEncoder());
-
-    }
+//
+//    @Override
+//    // configure authentication
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//      auth.userDetailsService(userDetailsService)
+//              .passwordEncoder(bCryptPasswordEncoder());
+//
+//    }
 
     // configure authorization
 
