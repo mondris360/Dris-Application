@@ -55,9 +55,9 @@ public class UserServiceImpl implements UserService {
             User user = new User();
             // copy the values of requestDTO to user
             BeanUtils.copyProperties(requestDto, user);
-            String token =   jwtToken.generateToken(user);
             user.setPassword(bCryptPasswordEncoder.encode(requestDto.getPassword()));
             userRepository.save(user);
+            String token =   jwtToken.generateToken(user);
             apiResponse = new ApiResponse("Successful", HttpStatus.CREATED, "User Created", token);
         }
         return apiResponse;
