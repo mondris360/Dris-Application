@@ -1,0 +1,16 @@
+
+#http post request to send an email
+
+POST http://localhost:9002/sendEmail
+Content-Type: application/json
+
+{
+  "toEmail": "justmondris@gmail.com",
+  "fromEmail":"admin@drisapp.com",
+  "subject": "Email Verification Notification",
+  "messageBodyTemplateName": "emailConfirmation",
+  "receiverFirstName": "Andrew",
+  "senderFullName": "Michael Mondris"
+}
+
+###
