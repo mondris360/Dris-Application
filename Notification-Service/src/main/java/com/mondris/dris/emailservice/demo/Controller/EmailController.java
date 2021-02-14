@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 @RestController
-public class SendEmailController {
+public class EmailController {
 
     @Resource
     private EmailService emailService;
