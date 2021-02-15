@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-// once the application is ready, create the rabbitmq exchange and queues in the config file, if they do not exists
+// once the application is ready, create the declared exchange and queues in the config file if they have not been created
 @Component
 public class InitializeExchangeAndQueues implements ApplicationListener<ApplicationReadyEvent> {
     @Resource
