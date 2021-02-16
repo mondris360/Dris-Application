@@ -1,4 +1,4 @@
-package com.mondris.dris.emailservice.demo.Util.MailConfig;
+package com.mondris.dris.emailservice.demo.Util.Config;
 
 
 import lombok.Getter;
