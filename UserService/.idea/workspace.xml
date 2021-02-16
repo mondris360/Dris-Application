@@ -20,7 +20,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f768f2c-5ffe-4f59-8b78-dc0a4139b950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/Config/RabbitMqConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/ApiExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/CustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/IllegalArgumentException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/InvalidInputException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/UnAuthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorResponse/ApiExceptionMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorResponse/ErrorDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Response/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/MessageBrokerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/MessageBrokerServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Controller/EmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Dto/SendMailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Dto/SendMailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Service/Impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Service/Impl/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Util/Config/RabbitMQConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Util/Config/RabbitMQConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/Service-Registry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/Service-Registry.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SendEmailReqDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SendEmailReqDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Util/RabbitMQ/RabbitMQConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Util/RabbitMQ/RabbitMQConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +87,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -78,6 +121,7 @@
       <updated>1613174901842</updated>
       <workItem from="1613174909728" duration="254000" />
       <workItem from="1613314237926" duration="22000" />
+      <workItem from="1613486840122" duration="1874000" />
     </task>
     <servers />
   </component>
