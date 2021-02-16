@@ -64,10 +64,5 @@ public class RabbitMqConfig {
         return new RabbitAdmin(connectionFactory);
     }
 
-    @Bean
-    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory){
-        RabbitTemplate rabbitTemplate =  new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(pojoToJsonConverter());
-        return  rabbitTemplate;
-    }
+   
 }
