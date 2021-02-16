@@ -20,16 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f768f2c-5ffe-4f59-8b78-dc0a4139b950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/ApiExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/CustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/IllegalArgumentException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/InvalidInputException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/UnAuthorizedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorResponse/ApiExceptionMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorResponse/ErrorDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Response/ApiResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/MessageBrokerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/MessageBrokerServiceApplication.java" afterDir="false" />
@@ -44,9 +34,6 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SendEmailReqDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SendEmailReqDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/User.java" afterDir="false" />
@@ -121,7 +108,7 @@
       <updated>1613174901842</updated>
       <workItem from="1613174909728" duration="254000" />
       <workItem from="1613314237926" duration="22000" />
-      <workItem from="1613486840122" duration="1874000" />
+      <workItem from="1613486840122" duration="2237000" />
     </task>
     <servers />
   </component>
