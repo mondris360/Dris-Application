@@ -18,9 +18,11 @@ public class EmailController {
 
     @Resource
     private EmailService emailService;
-    @RabbitListener(queues = "EmailQueue")
+
     @PostMapping("/sendEmail")
+    @RabbitListener(queues = "EmailQueue")
     ResponseEntity<SendMailResponse> sendEmail(@Valid @RequestBody  SendMailRequest request) throws Exception {
+
         System.out.println("received email request from queue+" + request);
         System.out.println("request" +  request);
         return  emailService.sendEmail(request);

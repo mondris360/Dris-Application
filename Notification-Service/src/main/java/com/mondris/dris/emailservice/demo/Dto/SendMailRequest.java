@@ -35,4 +35,6 @@ public class SendMailRequest {
     @NotBlank(message = "messageBodyTemplateName is  mandatory")
     private String messageBodyTemplateName;
 
+    private String link;
+
 }
