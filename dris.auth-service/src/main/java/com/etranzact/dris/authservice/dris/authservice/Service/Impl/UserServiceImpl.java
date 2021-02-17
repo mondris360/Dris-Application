@@ -22,6 +22,7 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -73,7 +74,8 @@ public class UserServiceImpl implements UserService {
             emailPublisher(user, "Jude", "http://localhost:8080/api/v1/emailVerification/" +token,
                     "Email Verification", "emailConfirmation");
 
-            apiResponse = new ApiResponse("Successful", HttpStatus.CREATED, "User Created", token);
+            apiResponse = new ApiResponse("Successful", HttpStatus.CREATED, "Email Verification Mail Sent To: "
+                    + user.getEmail());
         }
 
         return apiResponse;
@@ -224,8 +226,8 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
-    private void emailPublisher(User user, String firstName, String link, String subject, String emailTemplateName){
+@Async
+void emailPublisher(User user, String firstName, String link, String subject, String emailTemplateName){
 
         SendEmailReqDto  sendEmailReqDto =  new SendEmailReqDto();
         sendEmailReqDto.setFromEmail("admin@drisApp.com");
