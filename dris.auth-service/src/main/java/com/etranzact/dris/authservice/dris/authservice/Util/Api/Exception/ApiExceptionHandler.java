@@ -1,12 +1,9 @@
 package com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception;
 
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.CustomException;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.InvalidInputException;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.UnAuthorizedException;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
+import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.*;
+import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorResponse.ApiExceptionMessage;
 import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorResponse.ErrorDetails;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -63,6 +60,17 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         logger.warn(e.getMessage());
         return new ResponseEntity<>(apiExceptionMessage, httpStatus);
     }
+
+    @ExceptionHandler(value ={MalformedJwtException.class})
+    public ResponseEntity<Object> handleMalformedJwtException(MalformedJwtException e) {
+        System.out.println("====================== inside malformedJwt");
+        HttpStatus httpStatus = HttpStatus.FORBIDDEN;
+        ApiExceptionMessage  apiExceptionMessage = new ApiExceptionMessage(e.getMessage(), httpStatus, e.getPath());
+        logger.warn(e.getMessage());
+        return new ResponseEntity<>(apiExceptionMessage, httpStatus);
+    }
+
+
 
 
 
