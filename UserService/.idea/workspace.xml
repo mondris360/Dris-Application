@@ -74,7 +74,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -109,6 +109,7 @@
       <workItem from="1613174909728" duration="254000" />
       <workItem from="1613314237926" duration="22000" />
       <workItem from="1613486840122" duration="2237000" />
+      <workItem from="1613516184478" duration="5266000" />
     </task>
     <servers />
   </component>
@@ -126,5 +127,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1613518487892">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1613518487892" />
   </component>
 </project>

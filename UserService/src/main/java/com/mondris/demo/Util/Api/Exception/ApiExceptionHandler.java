@@ -53,6 +53,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(apiExceptionMessage, httpStatus);
     }
 
+
     @ExceptionHandler(value ={UnAuthorizedException.class})
     public ResponseEntity<Object> handleUnAuthorizedException(UnAuthorizedException e) {
         HttpStatus httpStatus = HttpStatus.FORBIDDEN;

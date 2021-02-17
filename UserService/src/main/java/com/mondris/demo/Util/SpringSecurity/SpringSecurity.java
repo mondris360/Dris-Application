@@ -1,4 +1,4 @@
-package com.mondris.demo.Util.Config;
+package com.mondris.demo.Util.SpringSecurity;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
