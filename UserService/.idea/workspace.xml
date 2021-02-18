@@ -20,9 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f768f2c-5ffe-4f59-8b78-dc0a4139b950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UserSignUpReqDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/UserServiceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/MessageBrokerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/MessageBrokerServiceApplication.java" afterDir="false" />
@@ -35,17 +32,12 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/Service-Registry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/Service-Registry.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Service-Registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/java/com/mondris/serviceregistry/serviceregistry/ServiceRegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/java/com/mondris/serviceregistry/serviceregistry/ServiceRegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/Sample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Sample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/ApiExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/ApiExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/IllegalArgumentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/IllegalArgumentException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorResponse/ApiExceptionMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorResponse/ApiExceptionMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/JwtToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/JwtToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/DemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +109,7 @@
       <workItem from="1613314237926" duration="22000" />
       <workItem from="1613486840122" duration="2237000" />
       <workItem from="1613516184478" duration="19713000" />
-      <workItem from="1613681085141" duration="1816000" />
+      <workItem from="1613681085141" duration="2381000" />
     </task>
     <servers />
   </component>
