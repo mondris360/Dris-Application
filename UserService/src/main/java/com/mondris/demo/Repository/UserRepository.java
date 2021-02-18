@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Set;
 
 @Repository
-public interface UserServiceRepository extends JpaRepository<Employee, Long> {
+public interface UserRepository extends JpaRepository<Employee, Long> {
     Employee getByEmail(String email);
 }
