@@ -6,8 +6,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.function.Function;
 
 public class JwtToken {
@@ -21,12 +19,10 @@ public class JwtToken {
         return extractClaim(token, Claims::getSubject);
     }
 
-
     public Date extractExpiration(String token) {
 
         return extractClaim(token, Claims::getExpiration);
     }
-
 
     public<T> T extractClaim(String token,  Function<Claims, T> claimResolver){
 
@@ -37,7 +33,6 @@ public class JwtToken {
     public Claims extractAllClaims(String token){
         return Jwts.parser().setSigningKey(SecretKey).parseClaimsJws(token).getBody();
     }
-
 
     private Boolean isTokentExpired(String token){
         return extractExpiration(token).before(new Date());

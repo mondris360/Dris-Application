@@ -20,6 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f768f2c-5ffe-4f59-8b78-dc0a4139b950" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UserSignUpReqDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/UserServiceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/MessageBrokerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Message-Broker-Service/src/main/java/com/mondris/messagebrokerservice/messagebrokerservice/MessageBrokerServiceApplication.java" afterDir="false" />
@@ -34,12 +37,15 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SendEmailReqDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SendEmailReqDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Util/RabbitMQ/RabbitMQConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Util/RabbitMQ/RabbitMQConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/Sample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Sample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/ApiExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/ApiExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/IllegalArgumentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorClass/IllegalArgumentException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorResponse/ApiExceptionMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Exception/CustomErrorResponse/ApiExceptionMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/JwtToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/JwtToken.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +78,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -109,7 +116,8 @@
       <workItem from="1613174909728" duration="254000" />
       <workItem from="1613314237926" duration="22000" />
       <workItem from="1613486840122" duration="2237000" />
-      <workItem from="1613516184478" duration="5266000" />
+      <workItem from="1613516184478" duration="19713000" />
+      <workItem from="1613681085141" duration="1130000" />
     </task>
     <servers />
   </component>
@@ -129,9 +137,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1613518487892">
+    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1613681887062">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1613518487892" />
+    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1613681887062" />
+    <state x="368" y="478" width="1255" height="158" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1613528584999">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="368" y="478" width="1255" height="158" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1613528584999" />
   </component>
 </project>

@@ -1,11 +1,10 @@
 package com.mondris.demo.Util.Api.Exception;
 
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.CustomException;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.InvalidInputException;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.UnAuthorizedException;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorResponse.ApiExceptionMessage;
-import com.etranzact.dris.authservice.dris.authservice.Util.Api.Exception.CustomErrorResponse.ErrorDetails;
+
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.*;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
+import com.mondris.demo.Util.Api.Exception.CustomErrorResponse.ApiExceptionMessage;
+import com.mondris.demo.Util.Api.Exception.CustomErrorResponse.ErrorDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

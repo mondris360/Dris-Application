@@ -46,6 +46,4 @@ public class Employee extends BaseModel {
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
     private Set<Address> address;
 
-    private String note;
-
 }
