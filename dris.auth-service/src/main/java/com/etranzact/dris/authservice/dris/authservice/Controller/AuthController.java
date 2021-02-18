@@ -1,9 +1,6 @@
 package com.etranzact.dris.authservice.dris.authservice.Controller;
 
-import com.etranzact.dris.authservice.dris.authservice.Dto.AccountStatusDto;
-import com.etranzact.dris.authservice.dris.authservice.Dto.AuthRequestDto;
-import com.etranzact.dris.authservice.dris.authservice.Dto.ChangePassRequestDto;
-import com.etranzact.dris.authservice.dris.authservice.Dto.SignUpRequestDto;
+import com.etranzact.dris.authservice.dris.authservice.Dto.*;
 import com.etranzact.dris.authservice.dris.authservice.Service.UserService;
 import com.etranzact.dris.authservice.dris.authservice.Util.Api.Response.ApiResponse;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -41,10 +38,18 @@ public class AuthController {
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
+    // route to verification email verification code and activate user account
     @GetMapping("/emailVerification/{emailToken}")
         public ResponseEntity<ApiResponse> verifyEmail(@PathVariable  String emailToken) throws Exception {
 
         return userService.emailVerification(emailToken);
+    }
+
+    // route to request for a new email verification link
+
+    @PostMapping("/sendNewEmailVerificationLink")
+    public ResponseEntity<ApiResponse> sendNewEmailVerificationLink(@Valid  @RequestBody EmailVerificationLinkReqDto email) throws Exception {
+        return userService.sendNewEmailVerificationLink(email.getEmail());
     }
 
     // route to change user password

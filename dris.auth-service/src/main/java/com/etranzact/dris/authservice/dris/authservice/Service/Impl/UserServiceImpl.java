@@ -15,6 +15,7 @@ import com.etranzact.dris.authservice.dris.authservice.Util.JwtToken;
 
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +29,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +53,9 @@ public class UserServiceImpl implements UserService {
     @Resource
     private RabbitTemplate rabbitTemplate;
 
+    @Resource
+    private ModelMapper modelMapper;
+
     @Override
     // method to create a new user
     public ApiResponse createUser(@Valid SignUpRequestDto requestDto) {
@@ -64,9 +69,10 @@ public class UserServiceImpl implements UserService {
 
         } else {
 
-            User user = new User();
+            User user =  modelMapper.map(requestDto, User.class);
+            System.out.println("Model Mapper== "+  user);
             // copy the values of requestDTO to user
-            BeanUtils.copyProperties(requestDto, user);
+//            BeanUtils.copyProperties(requestDto, user);
             user.setPassword(bCryptPasswordEncoder.encode(requestDto.getPassword()));
             userRepository.save(user);
 
@@ -217,6 +223,25 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    @Override
+    public ResponseEntity<ApiResponse> sendNewEmailVerificationLink(String email) throws Exception {
+
+        final User user = userRepository.getByEmail(email);
+
+        if (user == null) {
+            throw new UserNotFoundException("A user with This Email Address Was Not Found", "/sendNewEmailVerificationLink");
+        }
+
+        String token = jwtToken.generateToken(user);
+
+        emailPublisher(user, "No Name", "http://localhost:8080/api/v1/emailVerification/" +token,
+                "Email Verification", "emailConfirmation");
+
+        ApiResponse apiResponse =   new ApiResponse("Successful", HttpStatus.CREATED, "Email Verification Mail Sent To: "
+                + user.getEmail());
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
 
     // method to check if the user has used  the new password before
     private boolean isAPreviousPassword(User user,  String newPassword){

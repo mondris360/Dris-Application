@@ -14,6 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name ="users")
+@ToString
 public class User {
     @Id
     private  String email;
