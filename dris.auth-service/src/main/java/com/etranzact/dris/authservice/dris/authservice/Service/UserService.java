@@ -17,4 +17,5 @@ public interface UserService {
     ApiResponse updateAccountStatus(AccountStatusDto request);
     ResponseEntity<ApiResponse> emailVerification(String emailToken) throws Exception;
     ResponseEntity<ApiResponse> sendNewEmailVerificationLink(String email) throws Exception;
+    ResponseEntity<ApiResponse> getUserByEmail(String email) throws Exception;
 }

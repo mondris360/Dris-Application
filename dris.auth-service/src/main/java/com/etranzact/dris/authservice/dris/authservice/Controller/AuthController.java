@@ -25,11 +25,18 @@ public class AuthController {
 
     }
 
+//    @GetMapping("/user/{email}")
+//        public ResponseEntity<ApiResponse> getUserByEmail(@PathVariable String email){
+//
+//    }
+
+
     @PostMapping("/user/login")
     public ResponseEntity<ApiResponse> login(@Valid @RequestBody AuthRequestDto request){
         final ApiResponse apiResponse = userService.login(request);
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
+
 
     // private route to activate or disable user's account
     @PostMapping("/user/changeAccountStatus")

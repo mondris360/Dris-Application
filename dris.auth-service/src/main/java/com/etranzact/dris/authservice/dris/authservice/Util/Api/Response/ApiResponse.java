@@ -16,6 +16,7 @@ public class ApiResponse implements Serializable {
     private HttpStatus httpStatus;
     private  String message;
     private  String jwtToken;
+    private Object data;
 
 
     public ApiResponse(String status, HttpStatus httpStatus, String message) {
@@ -23,6 +24,20 @@ public class ApiResponse implements Serializable {
         this.httpStatus = httpStatus;
         this.message = message;
 
+    }
+
+    public ApiResponse(String status, HttpStatus httpStatus, Object data) {
+        this.status = status;
+        this.httpStatus = httpStatus;
+        this.message = message;
+        this.data = data;
+    }
+
+    public ApiResponse(String status, HttpStatus httpStatus, String message, String jwtToken) {
+        this.status = status;
+        this.httpStatus = httpStatus;
+        this.message = message;
+        this.jwtToken = jwtToken;
     }
 
 }
