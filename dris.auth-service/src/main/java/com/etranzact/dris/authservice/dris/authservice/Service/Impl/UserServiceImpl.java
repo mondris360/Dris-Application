@@ -108,20 +108,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    @Override
-    public ResponseEntity<ApiResponse> getUserByEmail(String email) throws Exception {
-
-        String currentRoute = "/user/{email}";
-        ApiResponse apiResponse;
-
-        final User user = cachingService.getUserByEmail(email, currentRoute, "Invalid Email Address");
-
-        final UserInfoResponseDto userInfo = modelMapper.map(user, UserInfoResponseDto.class);
-        apiResponse = new ApiResponse("Successful", HttpStatus.OK, userInfo);
-
-        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
-
-    }
 
     // method to change user password
     @Override
