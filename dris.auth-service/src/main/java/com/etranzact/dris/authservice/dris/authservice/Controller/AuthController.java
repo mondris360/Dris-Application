@@ -25,11 +25,6 @@ public class AuthController {
 
     }
 
-//    @GetMapping("/user/{email}")
-//        public ResponseEntity<ApiResponse> getUserByEmail(@PathVariable String email){
-//
-//    }
-
 
     @PostMapping("/user/login")
     public ResponseEntity<ApiResponse> login(@Valid @RequestBody AuthRequestDto request){

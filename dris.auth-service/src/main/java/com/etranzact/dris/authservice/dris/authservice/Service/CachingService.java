@@ -24,14 +24,13 @@ public class CachingService {
     @Cacheable(key = "#email")
     public User getUserByEmail(String email, String currentPath, String errorMessage){
         final User user = userRepository.getByEmail(email);
-        System.out.println("fetching record from db _ cachingService");
-        if (user != null && currentPath.equals(baseRoute+"/user/signUp") ){
-
-            throw  new UserAlreadyExistsException(errorMessage, currentPath);
+        if (currentPath.equals(baseRoute+"/user/signUp") ){
+            if (user != null) {
+                throw  new UserNotFoundException(errorMessage, currentPath);
+            }
 
         } else if (user == null) {
-
-            throw new UserNotFoundException(email, currentPath);
+            throw new UserNotFoundException(errorMessage, currentPath);
 
         }
         return user;
