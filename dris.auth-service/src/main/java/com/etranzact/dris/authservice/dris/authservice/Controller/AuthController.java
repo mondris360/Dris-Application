@@ -54,12 +54,12 @@ public class AuthController {
         return userService.sendNewEmailVerificationLink(email.getEmail());
     }
 
+
     // route to change user password
     @PostMapping("/user/changePassword")
     public ResponseEntity<ApiResponse> changePassword(@Valid @RequestBody ChangePassRequestDto request){
         final ApiResponse apiResponse = userService.changePassword(request);
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
-
 
 }
