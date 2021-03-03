@@ -7,5 +7,7 @@ public enum  Constants {
     DrisAppExchange,
     EmailQueueRoutingKey,
     SMSQueueRoutingKey,
-    UserNotificationQueueRoutingKey
+    UserNotificationQueueRoutingKey,
+    UserSignUpQueue,
+    UserSignUpQueueRoutingKey
 }

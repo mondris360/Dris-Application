@@ -30,6 +30,11 @@ public class RabbitMqConfig {
         return new Queue(Constants.UserNotificationQueue.toString());
     }
 
+    @Bean
+    public Queue userSignUpQueue(){
+         return  new Queue(Constants.UserSignUpQueue.toString());
+    }
+
 
     @Bean
     public TopicExchange myExchange(){
@@ -51,6 +56,10 @@ public class RabbitMqConfig {
     @Bean
     public  Binding  userNotificationQueueBinding(TopicExchange myExchange){
         return BindingBuilder.bind(userNotificationQueue()).to(myExchange).with(Constants.UserNotificationQueueRoutingKey.toString());
+    }
+
+    @Bean public Binding userSignUpQueueBinding(TopicExchange myExchange){
+        return BindingBuilder.bind(userSignUpQueue()).to(myExchange).with(Constants.UserSignUpQueueRoutingKey);
     }
 
     @Bean
