@@ -17,12 +17,11 @@ public class Department extends BaseModel {
     @NotBlank(message = "name is mandatory")
     private String name;
 
-    @Column(name="department_head")
-    @OneToOne
+    @OneToOne(mappedBy = "employee")
+    @JoinColumn(name="department_head")
     private DepartmentHead   departmentHead;
 
     @OneToMany(mappedBy = "department", cascade =  CascadeType.ALL)
-    @Column(name="emp_employment_history")
     private Set<EmpEmploymentHistory> empEmploymentHistory;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

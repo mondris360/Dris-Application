@@ -1,7 +1,9 @@
 package com.mondris.demo.Model;
 
 import com.mondris.demo.Model.BaseModel.BaseModel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Address  extends BaseModel {
 
     @NotBlank(message = "streetAddress is mandatory")
@@ -17,12 +21,11 @@ public class Address  extends BaseModel {
     private String streetAddress;
 
     @ManyToOne
-    @Column(name="employee_id_fkey")
     private Employee employee;
 
 
     @Column(name="address_type")
-    private String AddressType = "home";
+    private String addressType = "home";
 
     @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Country country;
@@ -32,4 +35,5 @@ public class Address  extends BaseModel {
 
     @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private City city;
+
 }

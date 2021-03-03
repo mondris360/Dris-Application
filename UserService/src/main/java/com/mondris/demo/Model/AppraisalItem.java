@@ -20,7 +20,6 @@ public class AppraisalItem  extends BaseModel {
     private String name;
 
     @ManyToOne
-    @Column(name="employee_appraisal")
     private EmployeeAppraisal employeeAppraisal;
 
 }

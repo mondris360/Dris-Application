@@ -13,12 +13,10 @@ import java.util.Set;
 @Getter
 public class EmploymentDetails extends BaseModel {
 
-    @Column(name="employee_id_fkey")
     @OneToOne
     private Employee employee;
 
     @OneToMany(mappedBy = "employmentDetails")
-    @Column(name="emp_employment_history_fkey")
     private Set<EmpEmploymentHistory> empEmploymentHistory;
 
 

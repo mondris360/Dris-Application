@@ -1,6 +1,9 @@
 package com.mondris.demo.Model;
 
+import com.mondris.demo.Model.BaseModel.BaseModel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -13,7 +16,9 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 @Entity
-public class SubDepartment {
+@AllArgsConstructor
+@NoArgsConstructor
+public class SubDepartment extends BaseModel {
 
     @NotBlank(message = "name is mandatory")
     private  String name;

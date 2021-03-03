@@ -28,19 +28,19 @@ public class EmpEmploymentHistory extends BaseModel {
     private Timestamp to_date; // the date  status was changed to false
 
 
-    @Column(name =  "employee_id")
+    @JoinColumn(name =  "employee_id")
     @ManyToOne
     private Employee employee;
 
-    @Column(name="employment_details_fkey")
+    @JoinColumn(name="employment_details_fkey")
     @ManyToOne
     private EmploymentDetails employmentDetails;
 
-    @Column(name="office_position_fkey")
+    @JoinColumn(name="office_position_fkey")
     @ManyToOne(cascade = CascadeType.ALL, fetch =FetchType.LAZY)
     private OfficePosition officePosition;
 
-    @Column(name="department_fkey")
+    @JoinColumn(name="department_fkey")
     @ManyToOne(cascade = CascadeType.ALL, fetch =FetchType.LAZY)
     private Department department;
 

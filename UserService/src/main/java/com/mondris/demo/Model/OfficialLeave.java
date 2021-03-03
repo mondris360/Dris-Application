@@ -28,7 +28,7 @@ public class OfficialLeave extends BaseModel {
     private Timestamp lastLeaveDate;
 
     @ManyToOne(cascade =  CascadeType.ALL)
-    @Column(name="employee_id_fkey")
+    @JoinColumn(name="employee_id_fkey")
     private Employee employee;
 
     @OneToOne(mappedBy = "officialLeave", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

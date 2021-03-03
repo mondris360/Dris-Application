@@ -5,10 +5,7 @@ import com.mondris.demo.Model.BaseModel.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name="team_lead")
 @Getter
@@ -17,6 +14,6 @@ import javax.persistence.Table;
 public class TeamLead extends BaseModel {
 
     @OneToOne
-    @Column(name="employee_id_fkey")
+    @JoinColumn(name="employee_id_fkey")
     private Employee employee;
 }

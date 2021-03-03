@@ -20,7 +20,6 @@ public class EmployeeAppraisal  extends BaseModel {
     private String note;
 
     @ManyToOne
-    @Column(name="employee_Id")
     private Employee employeeId;
 
     @OneToMany(mappedBy = "employeeAppraisal", cascade = CascadeType.ALL)

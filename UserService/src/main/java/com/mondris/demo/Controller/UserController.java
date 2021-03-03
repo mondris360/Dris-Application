@@ -17,6 +17,7 @@ public class UserController {
 
     @GetMapping("/completeSignUp")
     public ResponseEntity<ApiResponse> completeSignProcess(UserSignUpReqDto request){
+        System.out.println("Received user info from queue");
        return userService.createUser(request);
     }
 }

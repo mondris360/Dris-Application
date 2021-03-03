@@ -1,4 +1,6 @@
 package com.mondris.demo.Service.OpenFeignService;
 
-public class OpenFeignUserService {
+
+public interface OpenFeignUserService {
+
 }

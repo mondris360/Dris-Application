@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Getter
 public class DepartmentHead  extends BaseModel {
 
-    @Column(name="employee_id_fkey")
+    @JoinColumn(name="employee_id_fkey")
     @OneToOne(cascade = CascadeType.ALL)
     private Employee employee;
 

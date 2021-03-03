@@ -1,12 +1,11 @@
 package com.mondris.demo.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mondris.demo.Model.BaseModel.BaseModel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
@@ -14,7 +13,12 @@ import java.util.Set;
 @Table(name="employees")
 @Getter
 @Setter
-public class Employee extends BaseModel {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Employee{
+
+    @Id
+    private String email;
 
     @Column(name="first_name")
     @NotBlank(message = "firstName is mandatory")
@@ -24,11 +28,7 @@ public class Employee extends BaseModel {
     @NotBlank(message = "lastName is mandatory")
     private String lastName;
 
-    @NotBlank(message = "email is mandatory")
-    @Email
-    private String email;
-
-    @Column(name = "employment_details")
+    @JoinColumn(name = "employment_details")
     @OneToOne(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private EmploymentDetails employmentDetails;
 
