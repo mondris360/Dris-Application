@@ -1,9 +1,9 @@
 package com.mondris.demo.Dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.mondris.demo.Model.City;
+import com.mondris.demo.Model.Country;
+import com.mondris.demo.Model.State;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class UserSignUpReqDto {
 
     @Column(name="first_name")
@@ -35,18 +36,20 @@ public class UserSignUpReqDto {
 
     private String officeNumber;
 
+    @NotBlank(message = "address is compulsory is mandatory")
     private String streetAddress;
 
     @NotBlank(message = "city is mandatory")
     private String city;
 
     @NotBlank(message = "state is mandatory")
-
     private String state;
 
     @NotBlank(message = "country is mandatory")
-
     private String country;
+
+    @NotBlank(message = "zipcode is mandatory")
+    private String zipCode;
 
     private String addressType = "home";
 

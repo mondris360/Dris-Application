@@ -20,5 +20,6 @@ public class Config {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(messageConverter());
 
+        return  rabbitTemplate;
     }
 }

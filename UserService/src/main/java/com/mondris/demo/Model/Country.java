@@ -2,9 +2,12 @@ package com.mondris.demo.Model;
 
 
 import com.mondris.demo.Model.BaseModel.BaseModel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -13,6 +16,8 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Country extends BaseModel {
 
     @NotBlank(message = "name is mandatory")
@@ -22,6 +27,6 @@ public class Country extends BaseModel {
     @NotBlank(message = "zipcode is mandatory")
     private String zipCode;
 
-    @OneToOne
-    private Address address;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private Address address;
 }

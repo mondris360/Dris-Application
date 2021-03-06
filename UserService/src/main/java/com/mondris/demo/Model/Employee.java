@@ -1,9 +1,6 @@
 package com.mondris.demo.Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +12,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Employee{
 
     @Id
@@ -33,7 +31,7 @@ public class Employee{
     private EmploymentDetails employmentDetails;
 
     @Column(name = "phone_contact")
-    @OneToMany(mappedBy = "employeeId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<PhoneContact> phoneContact;
 
     @OneToMany(mappedBy = "employeeId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
