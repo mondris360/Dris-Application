@@ -3,6 +3,7 @@ package com.mondris.demo.Model;
 import com.mondris.demo.Model.BaseModel.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,9 +13,10 @@ import java.util.Set;
 @Table(name="departments")
 @Getter
 @Setter
+@ToString
 public class Department extends BaseModel {
 
-    @NotBlank(message = "name is mandatory")
+    @NotBlank(message = "department name is mandatory")
     private String name;
 
     @OneToOne(mappedBy = "employee")

@@ -1,8 +1,5 @@
 package com.mondris.demo.Dto;
 
-import com.mondris.demo.Model.City;
-import com.mondris.demo.Model.Country;
-import com.mondris.demo.Model.State;
 import lombok.*;
 
 import javax.persistence.*;
@@ -52,6 +49,5 @@ public class UserSignUpReqDto {
     private String zipCode;
 
     private String addressType = "home";
-
 
 }

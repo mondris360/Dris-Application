@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f768f2c-5ffe-4f59-8b78-dc0a4139b950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UserSignUpResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/AddressRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/CityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/CountryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/PhoneContactRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/StateRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/DepartmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/DepartmentReqDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/DepartmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/DepartmentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Controller/EmailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Dto/SendMailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Dto/SendMailRequest.java" afterDir="false" />
@@ -40,37 +38,18 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/Sample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/AuthorityReqDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UserSignUpReqDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UserSignUpReqDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/PhoneContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/PhoneContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/EmpEmploymentHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/EmpEmploymentHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Response/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/Api/Response/ApiResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/RabbitMq/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/RabbitMq/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/JwtToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/JwtToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/MyUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/MyUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/SpringSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/SpringSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/filters/jwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Util/SpringSecurity/filters/jwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Dto/UserSignUpReqDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Dto/UserSignUpReqDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Address.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/City.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Country.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Country.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/PhoneContact.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/PhoneContact.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Dto/Sample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Department.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/EmpEmploymentHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/EmpEmploymentHistory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Service/Impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Service/Impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Util/Api/Response/ApiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Util/Api/Response/ApiResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Util/SpringSecurity/JwtToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Util/SpringSecurity/MyUserDetailsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Util/SpringSecurity/SpringSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Util/SpringSecurity/SpringSecurity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Util/SpringSecurity/filters/jwtFilter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SignUpRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SignUpRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/Authority.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Util/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Util/JwtToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Util/JwtToken.java" afterDir="false" />
@@ -160,7 +139,8 @@
       <workItem from="1614858391351" duration="5470000" />
       <workItem from="1614942162133" duration="581000" />
       <workItem from="1614946862361" duration="13607000" />
-      <workItem from="1614981515101" duration="5661000" />
+      <workItem from="1614981515101" duration="6185000" />
+      <workItem from="1616237002280" duration="12990000" />
     </task>
     <servers />
   </component>
@@ -184,45 +164,45 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="726" y="355" width="530" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1614984596953" />
-    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1613681887062">
+    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1616248674207">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1613681887062" />
+    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1616248674207" />
     <state x="368" y="478" width="1255" height="158" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1613528584999">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="368" y="478" width="1255" height="158" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1613528584999" />
-    <state width="1802" height="265" key="GridCell.Tab.0.bottom" timestamp="1614988311763">
+    <state width="1802" height="265" key="GridCell.Tab.0.bottom" timestamp="1616249138474">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1614988311763" />
-    <state width="1802" height="265" key="GridCell.Tab.0.center" timestamp="1614988311762">
+    <state width="1802" height="265" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1616249138474" />
+    <state width="1802" height="265" key="GridCell.Tab.0.center" timestamp="1616249138473">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1614988311762" />
-    <state width="1802" height="265" key="GridCell.Tab.0.left" timestamp="1614988311762">
+    <state width="1802" height="265" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1616249138473" />
+    <state width="1802" height="265" key="GridCell.Tab.0.left" timestamp="1616249138472">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1614988311762" />
-    <state width="1802" height="265" key="GridCell.Tab.0.right" timestamp="1614988311762">
+    <state width="1802" height="265" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1616249138472" />
+    <state width="1802" height="265" key="GridCell.Tab.0.right" timestamp="1616249138474">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1614988311762" />
-    <state width="1802" height="265" key="GridCell.Tab.1.bottom" timestamp="1614988311764">
+    <state width="1802" height="265" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1616249138474" />
+    <state width="1802" height="265" key="GridCell.Tab.1.bottom" timestamp="1616249138475">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1614988311764" />
-    <state width="1802" height="265" key="GridCell.Tab.1.center" timestamp="1614988311763">
+    <state width="1802" height="265" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1616249138475" />
+    <state width="1802" height="265" key="GridCell.Tab.1.center" timestamp="1616249138475">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1614988311763" />
-    <state width="1802" height="265" key="GridCell.Tab.1.left" timestamp="1614988311763">
+    <state width="1802" height="265" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1616249138475" />
+    <state width="1802" height="265" key="GridCell.Tab.1.left" timestamp="1616249138474">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1614988311763" />
-    <state width="1802" height="265" key="GridCell.Tab.1.right" timestamp="1614988311763">
+    <state width="1802" height="265" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1616249138474" />
+    <state width="1802" height="265" key="GridCell.Tab.1.right" timestamp="1616249138475">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1614988311763" />
+    <state width="1802" height="265" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1616249138475" />
   </component>
 </project>

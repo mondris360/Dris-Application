@@ -14,7 +14,6 @@ import java.sql.Timestamp;
 @Table(name ="employee_employment_history")
 public class EmpEmploymentHistory extends BaseModel {
 
-
     @Column(name = "is_current_office_position")
     private boolean isCurrentOfficePosition = false;
 
@@ -26,7 +25,6 @@ public class EmpEmploymentHistory extends BaseModel {
 
     @CreationTimestamp
     private Timestamp to_date; // the date  status was changed to false
-
 
     @JoinColumn(name =  "employee_id")
     @ManyToOne
@@ -44,5 +42,5 @@ public class EmpEmploymentHistory extends BaseModel {
     @ManyToOne(cascade = CascadeType.ALL, fetch =FetchType.LAZY)
     private Department department;
 
-    
+
 }
