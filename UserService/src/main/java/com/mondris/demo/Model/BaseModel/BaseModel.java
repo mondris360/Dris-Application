@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 public class BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @Column(name="is_enabled")
     private boolean isEnabled = true;
