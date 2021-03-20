@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f768f2c-5ffe-4f59-8b78-dc0a4139b950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/DepartmentHeadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/DepartmentHeadReqDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Controller/EmailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Dto/SendMailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Dto/SendMailRequest.java" afterDir="false" />
@@ -34,7 +34,7 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/java/com/mondris/serviceregistry/serviceregistry/ServiceRegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/java/com/mondris/serviceregistry/serviceregistry/ServiceRegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/DepartmentHeadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/DepartmentHeadService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SignUpRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SignUpRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/Authority.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" afterDir="false" />
@@ -128,7 +128,7 @@
       <workItem from="1614946862361" duration="13607000" />
       <workItem from="1614981515101" duration="6185000" />
       <workItem from="1616237002280" duration="16029000" />
-      <workItem from="1616253099272" duration="5082000" />
+      <workItem from="1616253099272" duration="5647000" />
     </task>
     <servers />
   </component>
