@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f768f2c-5ffe-4f59-8b78-dc0a4139b950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/DepartmentHeadReqDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/DepartmentHeadResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/DepartmentHeadServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Email-Service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Controller/EmailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Dto/SendMailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Notification-Service/src/main/java/com/mondris/dris/emailservice/demo/Dto/SendMailRequest.java" afterDir="false" />
@@ -34,7 +35,9 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/java/com/mondris/serviceregistry/serviceregistry/ServiceRegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/java/com/mondris/serviceregistry/serviceregistry/ServiceRegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/DepartmentHeadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/DepartmentHeadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/DepartmentHeadReqDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/DepartmentHeadReqDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/DepartmentHeadRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Repository/DepartmentHeadRespository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SignUpRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SignUpRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/Authority.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" afterDir="false" />
@@ -128,7 +131,7 @@
       <workItem from="1614946862361" duration="13607000" />
       <workItem from="1614981515101" duration="6185000" />
       <workItem from="1616237002280" duration="16029000" />
-      <workItem from="1616253099272" duration="5647000" />
+      <workItem from="1616253099272" duration="8946000" />
     </task>
     <servers />
   </component>
@@ -152,10 +155,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="726" y="355" width="530" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1614984596953" />
-    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1616248674207">
+    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1616259299990">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1616248674207" />
+    <state x="804" y="261" width="838" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1616259299990" />
     <state x="368" y="478" width="1255" height="158" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1613528584999">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
