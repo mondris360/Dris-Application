@@ -1,6 +1,7 @@
 package com.mondris.demo.Controller;
 
 import com.mondris.demo.Dto.DepartmentReqDto;
+import com.mondris.demo.Model.DepartmentHead;
 import com.mondris.demo.Service.DepartmentService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.ResponseEntity;
@@ -21,4 +22,9 @@ public class DepartmentController {
     ResponseEntity<ApiResponse> createDepartment(@RequestBody DepartmentReqDto request){
         return departmentService.createDepartment(request);
     }
+
+
+
+
+
 }
