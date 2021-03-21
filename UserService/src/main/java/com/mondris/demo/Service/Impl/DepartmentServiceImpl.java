@@ -28,7 +28,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         ApiResponse apiResponse;
 
-        final String departmentName = request.toString().toLowerCase().trim();
+        final String departmentName = request.getName().toLowerCase().trim();
+        System.out.println("deptByName===================" +  departmentName);
         final Department department = departmentRepository.findDepartmentByName(departmentName);
 
         if (department != null){

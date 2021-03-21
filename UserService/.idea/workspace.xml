@@ -34,17 +34,8 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/DepartmentHeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/DepartmentHeadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/DepartmentHead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/DepartmentHead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/DepartmentHeadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/DepartmentHeadServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Controller/DepartmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Controller/DepartmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Department.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/DepartmentHead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/DepartmentHead.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Repository/DepartmentHeadRespository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Repository/DepartmentHeadRespository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/DepartmentHeadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/DepartmentHeadService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SignUpRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Dto/SignUpRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Model/Authority.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/java/com/etranzact/dris/authservice/dris/authservice/Service/Impl/UserServiceImpl.java" afterDir="false" />
@@ -139,7 +130,7 @@
       <workItem from="1614981515101" duration="6185000" />
       <workItem from="1616237002280" duration="16029000" />
       <workItem from="1616253099272" duration="9774000" />
-      <workItem from="1616345123626" duration="3155000" />
+      <workItem from="1616345123626" duration="4077000" />
     </task>
     <servers />
   </component>
@@ -171,37 +162,37 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="368" y="478" width="1255" height="158" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1613528584999" />
-    <state width="1802" height="265" key="GridCell.Tab.0.bottom" timestamp="1616348286782">
+    <state width="1802" height="265" key="GridCell.Tab.0.bottom" timestamp="1616348462520">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1616348286782" />
-    <state width="1802" height="265" key="GridCell.Tab.0.center" timestamp="1616348286781">
+    <state width="1802" height="265" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1616348462520" />
+    <state width="1802" height="265" key="GridCell.Tab.0.center" timestamp="1616348462519">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1616348286781" />
-    <state width="1802" height="265" key="GridCell.Tab.0.left" timestamp="1616348286780">
+    <state width="1802" height="265" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1616348462519" />
+    <state width="1802" height="265" key="GridCell.Tab.0.left" timestamp="1616348462519">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1616348286780" />
-    <state width="1802" height="265" key="GridCell.Tab.0.right" timestamp="1616348286781">
+    <state width="1802" height="265" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1616348462519" />
+    <state width="1802" height="265" key="GridCell.Tab.0.right" timestamp="1616348462520">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1616348286781" />
-    <state width="1802" height="265" key="GridCell.Tab.1.bottom" timestamp="1616348286783">
+    <state width="1802" height="265" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1616348462520" />
+    <state width="1802" height="265" key="GridCell.Tab.1.bottom" timestamp="1616348462522">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1616348286783" />
-    <state width="1802" height="265" key="GridCell.Tab.1.center" timestamp="1616348286782">
+    <state width="1802" height="265" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1616348462522" />
+    <state width="1802" height="265" key="GridCell.Tab.1.center" timestamp="1616348462521">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1616348286782" />
-    <state width="1802" height="265" key="GridCell.Tab.1.left" timestamp="1616348286782">
+    <state width="1802" height="265" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1616348462521" />
+    <state width="1802" height="265" key="GridCell.Tab.1.left" timestamp="1616348462520">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1616348286782" />
-    <state width="1802" height="265" key="GridCell.Tab.1.right" timestamp="1616348286783">
+    <state width="1802" height="265" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1616348462520" />
+    <state width="1802" height="265" key="GridCell.Tab.1.right" timestamp="1616348462521">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="265" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1616348286783" />
+    <state width="1802" height="265" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1616348462521" />
   </component>
 </project>
