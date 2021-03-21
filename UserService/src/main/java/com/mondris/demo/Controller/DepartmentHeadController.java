@@ -1,7 +1,6 @@
 package com.mondris.demo.Controller;
 
 import com.mondris.demo.Dto.DepartmentHeadReqDto;
-import com.mondris.demo.Model.DepartmentHead;
 import com.mondris.demo.Service.DepartmentHeadService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.ResponseEntity;

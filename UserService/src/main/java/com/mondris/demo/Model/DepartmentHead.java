@@ -3,6 +3,7 @@ package com.mondris.demo.Model;
 import com.mondris.demo.Model.BaseModel.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 

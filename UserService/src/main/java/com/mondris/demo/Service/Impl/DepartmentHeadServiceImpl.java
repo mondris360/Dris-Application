@@ -7,6 +7,8 @@ import com.mondris.demo.Model.Employee;
 import com.mondris.demo.Repository.DepartmentHeadRespository;
 import com.mondris.demo.Repository.UserRepository;
 import com.mondris.demo.Service.DepartmentHeadService;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,10 +33,14 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadByEmployee_Email(request.getDepartmentHeadUserEmail());
 
         if(departmentHead != null){
-            throw  new IllegalArgumentException("A department head with that email already exist");
+            throw  new IllegalArgumentException("A department head with that email already exist", "/createDepartmentHead");
         }
 
         Employee employee = userRepository.getByEmail(request.getDepartmentHeadUserEmail());
+
+        if (employee == null){
+            throw new UserNotFoundException("Invalid user email Address", "/createDepartmentHead");
+        }
 
         DepartmentHead newDepartmentHead =  new DepartmentHead();
         newDepartmentHead.setEnabled(true);
@@ -46,6 +52,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         DepartmentHeadResponseDto responseDto = new DepartmentHeadResponseDto();
         responseDto.setFirstName(employee.getFirstName());
         responseDto.setLastName(employee.getLastName());
+        responseDto.setUserEmailAddress(employee.getEmail());
         responseDto.setNote(createdDepartmentHead.getNote());
         responseDto.setStatus(createdDepartmentHead.isEnabled());
 
