@@ -13,6 +13,7 @@ import java.util.Set;
 @Table(name="departments")
 @Getter
 @Setter
+@ToString
 public class Department extends BaseModel {
 
     @NotBlank(message = "department name is mandatory")

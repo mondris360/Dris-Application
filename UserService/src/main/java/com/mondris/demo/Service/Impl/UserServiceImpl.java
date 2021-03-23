@@ -8,6 +8,7 @@ import com.mondris.demo.Repository.*;
 import com.mondris.demo.Service.UserService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     @Resource
@@ -42,7 +44,12 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public ResponseEntity<ApiResponse> createUser(UserSignUpReqDto request) {
+    /*
+      this method stores the remaining user signUp details in the user-service
+      Note: user email and pass were stored in the auth-service while the remaining  signUp details
+      were sent to the userService via RabbitMq
+    */
+    public void createUser(UserSignUpReqDto request) {
 
         Country country;
 
@@ -50,14 +57,11 @@ public class UserServiceImpl implements UserService {
 
         City city;
 
-        ApiResponse apiResponse;
-
-        String currentPath="/completeSignUp";
-
         Employee userExists =  userRepository.getByEmail(request.getEmail());
 
-        if(userExists != null){
-            throw new UserNotFoundException("A User With This Email Already Exists", HttpStatus.BAD_REQUEST, currentPath);
+        if(userExists != null){ // this is very unlikely since i have  already checked for it in the auth-service  sign up method
+          log.info("User already exists");
+          return;
         }
 
         Employee newUser =  modelMapper.map(request, Employee.class);
@@ -82,13 +86,11 @@ public class UserServiceImpl implements UserService {
             stateRepository.save(state);
         }
 
-
         city =  cityRepository.getByName(cityName);
         if (city == null){
             city  = new City(request.getCity().toLowerCase().trim());
             cityRepository.save(city);
         }
-
 
         Address address =  new Address(request.getStreetAddress(), user, "home", country, state, city);
         addressRepository.save(address);
@@ -104,10 +106,11 @@ public class UserServiceImpl implements UserService {
         }
 
 
-        UserSignUpResponseDto userSignUpResponseDto =  modelMapper.map(user, UserSignUpResponseDto.class);
-        apiResponse =  new ApiResponse("Created",HttpStatus.OK, "User Was Created", userSignUpResponseDto);
-
-        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+//        UserSignUpResponseDto userSignUpResponseDto =  modelMapper.map(user, UserSignUpResponseDto.class);
+////        apiResponse =  new ApiResponse("Created",HttpStatus.OK, "User Was Created", userSignUpResponseDto);
+//
+////        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+        log.info("User additional Info was stored in the user-service");
     }
 
 

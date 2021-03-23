@@ -10,10 +10,10 @@ import com.mondris.demo.Service.DepartmentService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.config.web.servlet.headers.HttpPublicKeyPinningDsl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
@@ -29,7 +29,6 @@ public class DepartmentServiceImpl implements DepartmentService {
         ApiResponse apiResponse;
 
         final String departmentName = request.getName().toLowerCase().trim();
-        System.out.println("deptByName===================" +  departmentName);
         final Department department = departmentRepository.findDepartmentByName(departmentName);
 
         if (department != null){
@@ -45,7 +44,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
         Department newDepartment =  new Department();
-        newDepartment.setDepartmentHead(departmentHead);
+//        newDepartment.setDepartmentHead(departmentHead);
         newDepartment.setName(departmentName);
 
         final Department createdDepartment = departmentRepository.save(newDepartment);
@@ -53,5 +52,16 @@ public class DepartmentServiceImpl implements DepartmentService {
         apiResponse =  new ApiResponse("Successful", HttpStatus.CREATED, "Department Was Created Successfully",createdDepartment);
 
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
+
+    @Override
+    public ResponseEntity<ApiResponse> getDepartments() {
+
+        System.out.println("==================================================");
+        System.out.println(departmentRepository.findDepartmentByName("switching and payments"));
+
+
+        return null;
     }
 }

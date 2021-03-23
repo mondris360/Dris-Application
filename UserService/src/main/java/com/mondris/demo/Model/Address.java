@@ -25,13 +25,13 @@ public class Address  extends BaseModel {
     @Column(name="address_type")
     private String addressType = "home";
 
-    @OneToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne( fetch = FetchType.LAZY)
     private Country country;
 
-    @OneToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne( fetch = FetchType.LAZY)
     private State state;
 
-    @OneToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne( fetch = FetchType.LAZY)
     private City city;
 
 }

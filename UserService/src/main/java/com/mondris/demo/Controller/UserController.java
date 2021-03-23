@@ -20,8 +20,8 @@ public class UserController {
 
     @PostMapping("/completeSignUp")
     @RabbitListener(queues = "UserSignUpQueue")
-    public ResponseEntity<ApiResponse> completeSignProcess(@RequestBody  UserSignUpReqDto request){
-       return userService.createUser(request);
+    public void completeSignProcess(@RequestBody  UserSignUpReqDto request){
+        userService.createUser(request);
     }
 
     @GetMapping("/hello")

@@ -1,10 +1,10 @@
 package com.mondris.demo.Controller;
 
 import com.mondris.demo.Dto.DepartmentReqDto;
-import com.mondris.demo.Model.DepartmentHead;
 import com.mondris.demo.Service.DepartmentService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +20,16 @@ public class DepartmentController {
 
     @PostMapping("/createDepartment")
     ResponseEntity<ApiResponse> createDepartment(@RequestBody DepartmentReqDto request){
+
         return departmentService.createDepartment(request);
+    }
+
+
+
+    @GetMapping("/getDepartments")
+    ResponseEntity<ApiResponse> getDepartments(){
+
+        return departmentService.getDepartments();
     }
 
 
