@@ -22,7 +22,8 @@ public class JwtToken {
         long currentTime =  System.currentTimeMillis();
         // 2hrs
         int tokenValidityPeriod = 2 * 60 * 60 * 1000;
-        final String generatedToken = Jwts.builder().signWith(SignatureAlgorithm.HS256, Constants.JwtTokenSecretKey)
+        final String generatedToken = Jwts.builder().signWith(SignatureAlgorithm.HS256,
+                Constants.JwtTokenSecretKey7854fhg2234567880695.toString())
                 .setIssuedAt(new Date(currentTime))
                 .setExpiration(new Date(currentTime + tokenValidityPeriod))
                 .claim("email", user.getEmail())
@@ -35,7 +36,9 @@ public class JwtToken {
 
     public Claims validateToken(String token) throws Exception{
        try {
-           return Jwts.parser().setSigningKey(Constants.JwtTokenSecretKey).parseClaimsJws(token).getBody();
+           return Jwts.parser().setSigningKey(Constants.JwtTokenSecretKey7854fhg2234567880695.toString())
+                   .parseClaimsJws(token)
+                   .getBody();
 
        } catch(Exception e){
             log.warn(e.getMessage());

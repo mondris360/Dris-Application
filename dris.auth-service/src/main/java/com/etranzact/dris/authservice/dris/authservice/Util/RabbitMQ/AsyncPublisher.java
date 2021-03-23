@@ -1,7 +1,9 @@
 package com.etranzact.dris.authservice.dris.authservice.Util.RabbitMQ;
 
 import com.etranzact.dris.authservice.dris.authservice.Dto.SendEmailReqDto;
+import com.etranzact.dris.authservice.dris.authservice.Dto.SignUpRequestDto;
 import com.etranzact.dris.authservice.dris.authservice.Model.User;
+import com.etranzact.dris.authservice.dris.authservice.Util.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.scheduling.annotation.Async;
@@ -26,9 +28,17 @@ public class AsyncPublisher {
         sendEmailReqDto.setMessageBodyTemplateName(emailTemplateName);
         sendEmailReqDto.setSenderFullName("Michael Mondris");
         sendEmailReqDto.setSubject(subject);
-        log.info("done with  async()");
-        log.info(Thread.currentThread().getName());
-        rabbitTemplate.convertAndSend("DrisAppExchange", "EmailQueueRoutingKey", sendEmailReqDto);
+        rabbitTemplate.convertAndSend(Constants.DrisAppExchange.toString(), Constants.EmailQueueRoutingKey.toString(),
+                sendEmailReqDto);
+
+    }
+
+    //  method to send user/ employment details to user service
+    @Async
+    public void userSignUpPublisher(SignUpRequestDto request) {
+        log.info("inside userSignUpPublisher");
+        System.out.println(request);
+        rabbitTemplate.convertAndSend(Constants.DrisAppExchange.toString(), Constants.UserSignUpQueueRoutingKey.toString(), request);
 
     }
 }

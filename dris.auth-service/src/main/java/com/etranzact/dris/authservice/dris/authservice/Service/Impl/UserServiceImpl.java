@@ -67,19 +67,19 @@ public class UserServiceImpl implements UserService {
         String currentRoute = baseRoute + "/user/signUp";
         final User email_address_already_exists = cachingService.getUserByEmail(requestDto.getEmail(), currentRoute, "Email Address Already Exists");
         final User user = modelMapper.map(requestDto, User.class);
+
         user.setPassword(bCryptPasswordEncoder.encode(requestDto.getPassword()));
         userRepository.save(user);
 
         String token = jwtToken.generateToken(user);
 
-        asyncPublisher.emailPublisher(user, "Jude", "http://localhost:8080/api/v1/emailVerification/" + token,
+        asyncPublisher.userSignUpPublisher(requestDto);
+
+        asyncPublisher.emailPublisher(user, requestDto.getFirstName(), "http://localhost:8080/api/v1/emailVerification/" + token,
                 "Email Verification", "emailConfirmation");
 
         apiResponse = new ApiResponse("Successful", HttpStatus.CREATED, "Email Verification Mail Sent To: "
                 + user.getEmail());
-
-        System.out.println("done with createMethod()");
-        log.info(Thread.currentThread().getName());
 
         return apiResponse;
     }
@@ -89,6 +89,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Cacheable(cacheNames = "users-token", key = "#request.email")
     public ApiResponse login(@Valid AuthRequestDto request) {
+
         String currentRoute = baseRoute + "/users/login";
         ApiResponse apiResponse;
         final User user = cachingService.getUserByEmail(request.getEmail(), currentRoute, "Invalid Login Details");

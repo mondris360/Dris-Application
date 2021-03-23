@@ -19,7 +19,9 @@ public class AuthController {
 
 
     @PostMapping("/user/signUp")
-    public ResponseEntity<ApiResponse> createUser(@RequestBody SignUpRequestDto request) throws Exception {
+    public ResponseEntity<ApiResponse> createUser(@Valid @RequestBody SignUpRequestDto request) throws Exception {
+        System.out.println("---------------------------------" + request);
+
         final ApiResponse apiResponse = userService.createUser(request);
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
 

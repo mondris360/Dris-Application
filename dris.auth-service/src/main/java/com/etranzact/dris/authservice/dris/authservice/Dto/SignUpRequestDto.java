@@ -17,6 +17,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class SignUpRequestDto extends BaseDto{
 
     @Column(name="first_name")
@@ -50,6 +51,9 @@ public class SignUpRequestDto extends BaseDto{
 
     @NotBlank(message = "country is mandatory")
     private String country;
+
+    @NotBlank(message = "zipCode is mandatory")
+    private String zipCode;
 
     private Set< @Valid Authority> authorities;
 
