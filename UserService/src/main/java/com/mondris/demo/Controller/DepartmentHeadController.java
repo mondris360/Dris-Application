@@ -1,5 +1,6 @@
 package com.mondris.demo.Controller;
 
+import com.mondris.demo.Dto.ChangeDepartmentHeadReqDto;
 import com.mondris.demo.Dto.DepartmentHeadReqDto;
 import com.mondris.demo.Service.DepartmentHeadService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
@@ -27,6 +28,11 @@ public class DepartmentHeadController {
     @GetMapping("/getDepartmentHeadByDepartmentId/{departmentId}")
      ResponseEntity<ApiResponse> getDepartmentHeadByDepartmentId(@PathVariable long departmentId){
         return departmentHeadService.getByDepartmentId(departmentId);
+    }
+
+    @GetMapping("/changeDepartmentHead")
+    ResponseEntity<ApiResponse> changeDepartmentHead(@RequestBody ChangeDepartmentHeadReqDto request){
+        return departmentHeadService.changeDepartmentHead(request);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.mondris.demo.Service.Impl;
 
+import com.mondris.demo.Dto.ChangeDepartmentHeadReqDto;
 import com.mondris.demo.Dto.DepartmentHeadReqDto;
 import com.mondris.demo.Dto.DepartmentHeadResponseDto;
 import com.mondris.demo.Model.Department;
@@ -101,6 +102,46 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         final DepartmentHead departmentHeadDetails = departmentHeadRespository.getDepartmentHeadById(departmentId);
 
         apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Head Details", departmentHeadDetails);
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
+    @Override
+    public ResponseEntity<ApiResponse> changeDepartmentHead(ChangeDepartmentHeadReqDto request) {
+
+        String newDepartmentHeadEmail = request.getNewDepartmentHeadEmail().toLowerCase().trim();
+        ApiResponse apiResponse;
+
+        String currentPath = "/getDepartmentHeadByDepartmentId/";
+
+        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(request.getDepartmentId());
+
+        if(departmentHead == null){
+            throw new NotFoundException("Invalid department Id", currentPath );
+        }
+
+
+        final Employee employee = userRepository.getByEmail(newDepartmentHeadEmail);
+
+        if (employee == null){
+
+            throw new NotFoundException("Invalid department head email address", currentPath);
+        }
+
+        final DepartmentHead userIsAlreadyADeptHead = departmentHeadRespository.
+                getDepartmentHeadByEmployee_Email(newDepartmentHeadEmail);
+
+        if (userIsAlreadyADeptHead != null){
+
+            throw new IllegalArgumentException("The User is already a department Head", currentPath);
+        }
+
+
+        departmentHead.setEmployee(employee);
+        final DepartmentHead updatedDepartmentHeadDetails = departmentHeadRespository.save(departmentHead);
+
+        apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Department Head Was Successfully Changed",
+                updatedDepartmentHeadDetails);
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }

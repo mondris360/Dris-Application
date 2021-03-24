@@ -5,23 +5,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DepartmentHeadReqDto {
+@Getter
+@Setter
+public class ChangeDepartmentHeadReqDto {
 
-    @NotBlank(message = "departmentHeadUserEmail is mandatory")
-    private String departmentHeadUserEmail;
+    @NotBlank(message = "newDepartmentHeadEmail is mandatory")
+    @Email
+    private String newDepartmentHeadEmail;
 
     @NotBlank(message = "departmentId is mandatory")
     private long departmentId;
 
-
     @Size(max=2000, message = "note must be lesser than or equal to 2000 characters")
     private String note;
+
 }
