@@ -12,16 +12,15 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
+@ToString
 public class DepartmentHead  extends BaseModel {
 
     @JoinColumn(name="employee_id_fkey")
     @OneToOne
-    @JsonIgnore
     private Employee employee;
 
     @JoinColumn(name="department_id_fkey")
     @OneToOne
-    @JsonIgnore
     private Department department;
 
     private String note;

@@ -48,13 +48,13 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         Employee employee = userRepository.getByEmail(request.getDepartmentHeadUserEmail());
 
         if (employee == null){
+
             throw new UserNotFoundException("Invalid user email Address", currentPath);
         }
 
         Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
 
         if ( department == null){
-
             throw  new NotFoundException("Invalid department Id", currentPath );
         }
 
@@ -81,10 +81,11 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
     @Override
     public ResponseEntity<ApiResponse> getAllDepartmentHeads() {
-        ApiResponse apiResponse;
-        final List<DepartmentHead> getDepartmentsHeads = departmentHeadRespository.findAll();
 
-        System.out.println("result from db+++++++++++++++" +  getDepartmentsHeads);
+        ApiResponse apiResponse;
+
+        final List<DepartmentHead> getDepartmentsHeads = departmentHeadRespository.findAll();
+        System.out.println("=================================" + getDepartmentsHeads);
 
         apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "List of Department Heads", getDepartmentsHeads);
 

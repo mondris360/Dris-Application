@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 @RestController
 public class DepartmentController {
@@ -19,7 +20,7 @@ public class DepartmentController {
 
 
     @PostMapping("/createDepartment")
-    ResponseEntity<ApiResponse> createDepartment(@RequestBody DepartmentReqDto request){
+    ResponseEntity<ApiResponse> createDepartment( @Valid @RequestBody DepartmentReqDto request){
 
         return departmentService.createDepartment(request);
     }
@@ -29,7 +30,7 @@ public class DepartmentController {
     @GetMapping("/getDepartments")
     ResponseEntity<ApiResponse> getDepartments(){
 
-        return departmentService.getDepartments();
+        return departmentService.getAllDepartments();
     }
 
 

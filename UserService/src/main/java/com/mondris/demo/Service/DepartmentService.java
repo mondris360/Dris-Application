@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface DepartmentService {
     ResponseEntity<ApiResponse> createDepartment(DepartmentReqDto request);
-    ResponseEntity<ApiResponse> getDepartments();
+    ResponseEntity<ApiResponse> getAllDepartments();
 
 }

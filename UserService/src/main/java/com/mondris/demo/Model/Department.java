@@ -1,5 +1,6 @@
 package com.mondris.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mondris.demo.Model.BaseModel.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,17 +14,18 @@ import java.util.Set;
 @Table(name="departments")
 @Getter
 @Setter
-@ToString
 public class Department extends BaseModel {
 
     @NotBlank(message = "department name is mandatory")
     private String name;
 
-    @OneToOne(mappedBy = "employee")
+    @OneToOne(mappedBy = "department", cascade = CascadeType.ALL)
     @JoinColumn(name="department_head")
+    @JsonIgnore
     private DepartmentHead   departmentHead;
 
-    @OneToMany(mappedBy = "department", cascade =  CascadeType.ALL)
+    @OneToMany(mappedBy = "department")
+    @JsonIgnore
     private Set<EmpEmploymentHistory> empEmploymentHistory;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

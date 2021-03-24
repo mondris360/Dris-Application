@@ -1,5 +1,6 @@
 package com.mondris.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mondris.demo.Model.BaseModel.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,6 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
-@ToString
 public class PhoneContact extends BaseModel {
 
     @Column(name="phone_number")
@@ -24,6 +24,7 @@ public class PhoneContact extends BaseModel {
 
     @JoinColumn(name="employee_id")
     @ManyToOne
+    @JsonIgnore
     private Employee employee;
 
 }

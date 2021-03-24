@@ -37,17 +37,17 @@ public class DepartmentServiceImpl implements DepartmentService {
             throw new IllegalArgumentException("Department name already exists");
         }
 
-        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(request.getDepartmentHeadId());
-
-        if (departmentHead == null){
-
-            throw  new NotFoundException("Invalid Department Head Id", currentPath);
-        }
+//        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(request.getDepartmentHeadId());
+//
+//        if (departmentHead == null){
+//
+//            throw  new NotFoundException("Invalid Department Head Id", currentPath);
+//        }
 
 
         Department newDepartment =  new Department();
-        newDepartment.setDepartmentHead(departmentHead);
         newDepartment.setName(departmentName);
+        newDepartment.setNote(request.getNote().trim());
 
         final Department createdDepartment = departmentRepository.save(newDepartment);
 
@@ -58,12 +58,13 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
     @Override
-    public ResponseEntity<ApiResponse> getDepartments() {
+    public ResponseEntity<ApiResponse> getAllDepartments() {
+        ApiResponse apiResponse;
 
-        System.out.println("==================================================");
-        final Department department= departmentRepository.findDepartmentByName("switching and payments");
+        final List<Department> allDepartments= departmentRepository.findAll();
 
+        apiResponse = new ApiResponse("Successful", HttpStatus.OK," List of All The Departments", allDepartments);
 
-        return null;
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 }

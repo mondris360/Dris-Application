@@ -1,5 +1,6 @@
 package com.mondris.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mondris.demo.Model.BaseModel.BaseModel;
 import lombok.*;
 
@@ -17,8 +18,9 @@ public class Address  extends BaseModel {
     @NotBlank(message = "streetAddress is mandatory")
     @Column(name="street_address")
     private String streetAddress;
-
+    
     @ManyToOne
+    @JsonIgnore
     private Employee employee;
 
 
