@@ -9,4 +9,5 @@ import org.springframework.stereotype.Service;
 public interface DepartmentHeadService {
      ResponseEntity<ApiResponse> createDepartmentHead(DepartmentHeadReqDto request);
      ResponseEntity<ApiResponse> getAllDepartmentHeads();
+     ResponseEntity<ApiResponse> getByDepartmentId(long departmentId);
 }

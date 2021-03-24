@@ -19,7 +19,7 @@ public class BaseModel {
     private long id;
 
     @Column(name="is_enabled")
-    private boolean isEnabled = true;
+    private boolean enabled = true;
 
     @Column(name="created_at")
     @CreationTimestamp

@@ -85,7 +85,6 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         ApiResponse apiResponse;
 
         final List<DepartmentHead> getDepartmentsHeads = departmentHeadRespository.findAll();
-        System.out.println("=================================" + getDepartmentsHeads);
 
         apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "List of Department Heads", getDepartmentsHeads);
 
@@ -94,4 +93,15 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
     }
 
 
+    @Override
+    public ResponseEntity<ApiResponse> getByDepartmentId(long departmentId) {
+
+        ApiResponse apiResponse;
+
+        final DepartmentHead departmentHeadDetails = departmentHeadRespository.getDepartmentHeadById(departmentId);
+
+        apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Head Details", departmentHeadDetails);
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
 }
