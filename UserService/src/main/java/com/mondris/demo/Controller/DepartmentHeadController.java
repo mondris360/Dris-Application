@@ -35,4 +35,9 @@ public class DepartmentHeadController {
         return departmentHeadService.changeDepartmentHead(request);
     }
 
+    @DeleteMapping("/departmentHead/{id}")
+    ResponseEntity<ApiResponse> deleteDepartmentHeadById(@PathVariable long id){
+        return departmentHeadService.deleteDepartHeadById(id);
+    }
+
 }
