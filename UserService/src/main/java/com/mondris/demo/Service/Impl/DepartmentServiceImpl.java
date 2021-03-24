@@ -3,10 +3,10 @@ package com.mondris.demo.Service.Impl;
 import com.mondris.demo.Dto.DepartmentReqDto;
 import com.mondris.demo.Model.Department;
 import com.mondris.demo.Model.DepartmentHead;
-import com.mondris.demo.Model.Employee;
 import com.mondris.demo.Repository.DepartmentHeadRespository;
 import com.mondris.demo.Repository.DepartmentRepository;
 import com.mondris.demo.Service.DepartmentService;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +23,8 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Resource
     private DepartmentHeadRespository departmentHeadRespository;
 
+    private  String currentPath =  "/createDepartment";
+
     @Override
     public ResponseEntity<ApiResponse> createDepartment(DepartmentReqDto request) {
 
@@ -35,16 +37,16 @@ public class DepartmentServiceImpl implements DepartmentService {
             throw new IllegalArgumentException("Department name already exists");
         }
 
-        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(request.getDepartmentHeadUserId());
+        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(request.getDepartmentHeadId());
 
         if (departmentHead == null){
 
-            throw  new  IllegalArgumentException("Invalid Department Head Id");
+            throw  new NotFoundException("Invalid Department Head Id", currentPath);
         }
 
 
         Department newDepartment =  new Department();
-//        newDepartment.setDepartmentHead(departmentHead);
+        newDepartment.setDepartmentHead(departmentHead);
         newDepartment.setName(departmentName);
 
         final Department createdDepartment = departmentRepository.save(newDepartment);
@@ -59,7 +61,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public ResponseEntity<ApiResponse> getDepartments() {
 
         System.out.println("==================================================");
-        System.out.println(departmentRepository.findDepartmentByName("switching and payments"));
+        final Department department= departmentRepository.findDepartmentByName("switching and payments");
 
 
         return null;

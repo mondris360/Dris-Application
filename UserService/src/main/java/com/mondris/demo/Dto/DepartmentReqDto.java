@@ -9,5 +9,5 @@ import lombok.*;
 @NoArgsConstructor
 public class DepartmentReqDto {
     private String name;
-    private long departmentHeadUserId;
+    private long departmentHeadId;
 }

@@ -19,6 +19,8 @@ public class DepartmentHeadResponseDto {
 
     private String lastName;
 
+    private String departmentName;
+
     private String createdAt;
 
     private String note;

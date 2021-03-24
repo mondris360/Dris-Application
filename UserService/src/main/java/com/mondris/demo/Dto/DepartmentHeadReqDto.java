@@ -18,6 +18,10 @@ public class DepartmentHeadReqDto {
     @NotBlank(message = "departmentHeadUserEmail is mandatory")
     private String departmentHeadUserEmail;
 
+    @NotBlank(message = "departmentId is mandatory")
+    private long departmentId;
+
+
     @Size(max=200)
     private String note;
 }
