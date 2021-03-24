@@ -33,20 +33,22 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
     @Resource
     private DepartmentRepository departmentRepository;
 
+    private String currentPath = "/departmentHead";
+
     @Override
     public ResponseEntity<ApiResponse> createDepartmentHead(DepartmentHeadReqDto request) {
 
-        String currentPath = "/createDepartmentHead";
+        String departmentHeadEmail = request.getDepartmentHeadUserEmail().toLowerCase().trim();
 
         ApiResponse apiResponse;
 
-        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadByEmployee_Email(request.getDepartmentHeadUserEmail());
+        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadByEmployee_Email(departmentHeadEmail);
 
         if(departmentHead != null){
             throw  new IllegalArgumentException("A department head with that email already exist", currentPath);
         }
 
-        Employee employee = userRepository.getByEmail(request.getDepartmentHeadUserEmail());
+        Employee employee = userRepository.getByEmail(departmentHeadEmail);
 
         if (employee == null){
 
@@ -112,12 +114,12 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         String newDepartmentHeadEmail = request.getNewDepartmentHeadEmail().toLowerCase().trim();
         ApiResponse apiResponse;
 
-        String currentPath = "/getDepartmentHeadByDepartmentId/";
+        String currentPath2 = currentPath+"/departmentId";
 
         final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(request.getDepartmentId());
 
         if(departmentHead == null){
-            throw new NotFoundException("Invalid department Id", currentPath );
+            throw new NotFoundException("Invalid department Id", currentPath2 );
         }
 
 
@@ -142,6 +144,24 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Department Head Was Successfully Changed",
                 updatedDepartmentHeadDetails);
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
+    @Override
+    public ResponseEntity<ApiResponse> deleteDepartHeadById(long departmentHeadId) {
+
+        ApiResponse apiResponse;
+
+        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(departmentHeadId);
+
+        if (departmentHead == null) {
+            throw new NotFoundException("Invalid Department Head Id", currentPath);
+        }
+
+        departmentHeadRespository.deleteById(departmentHeadId);
+
+        apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Department Head Was Deleted Successfully");
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
