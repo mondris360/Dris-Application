@@ -61,6 +61,16 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(apiExceptionMessage, httpStatus);
     }
 
+    @ExceptionHandler(value ={NotFoundException.class})
+    public ResponseEntity<Object> handleUnAuthorizedException(NotFoundException e) {
+        HttpStatus httpStatus = HttpStatus.FORBIDDEN;
+        ApiExceptionMessage  apiExceptionMessage = new ApiExceptionMessage(e.getMessage(), httpStatus, e.getPath());
+        logger.warn(e.getMessage());
+        return new ResponseEntity<>(apiExceptionMessage, httpStatus);
+    }
+
+
+
 
 
 
