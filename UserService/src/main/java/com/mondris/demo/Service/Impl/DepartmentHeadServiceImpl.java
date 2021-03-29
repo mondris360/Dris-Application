@@ -14,6 +14,8 @@ import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentExcep
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
+@Slf4j
 public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
     @Resource
@@ -159,7 +162,9 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
             throw new NotFoundException("Invalid Department Head Id", currentPath);
         }
 
-        departmentHeadRespository.deleteById(departmentHeadId);
+        departmentHead.setEnabled(false);
+
+        departmentHeadRespository.save(departmentHead);
 
         apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Department Head Was Deleted Successfully");
 

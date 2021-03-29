@@ -57,6 +57,8 @@ public class UserServiceImpl implements UserService {
 
         City city;
 
+        request.setEmail(request.getEmail().toLowerCase().trim());
+
         Employee userExists =  userRepository.getByEmail(request.getEmail());
 
         if(userExists != null){ // this is very unlikely since i have  already checked for it in the auth-service  sign up method

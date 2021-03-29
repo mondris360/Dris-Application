@@ -37,12 +37,6 @@ public class DepartmentServiceImpl implements DepartmentService {
             throw new IllegalArgumentException("Department name already exists");
         }
 
-//        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(request.getDepartmentHeadId());
-//
-//        if (departmentHead == null){
-//
-//            throw  new NotFoundException("Invalid Department Head Id", currentPath);
-//        }
 
 
         Department newDepartment =  new Department();
