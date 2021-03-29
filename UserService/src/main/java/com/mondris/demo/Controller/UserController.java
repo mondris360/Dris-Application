@@ -24,9 +24,5 @@ public class UserController {
         userService.createUser(request);
     }
 
-    @GetMapping("/hello")
-    public String Hello(){
-        System.out.println("=======================================================");
-        return "Hello World";
-    }
+
 }

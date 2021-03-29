@@ -90,7 +90,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         ApiResponse apiResponse;
 
-        final List<DepartmentHead> getDepartmentsHeads = departmentHeadRespository.findAll();
+        final List<DepartmentHead> getDepartmentsHeads = departmentHeadRespository.getAllByEnabledIsTrue();
 
         apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "List of Department Heads", getDepartmentsHeads);
 
@@ -104,7 +104,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         ApiResponse apiResponse;
 
-        final DepartmentHead departmentHeadDetails = departmentHeadRespository.getDepartmentHeadById(departmentId);
+        final DepartmentHead departmentHeadDetails = departmentHeadRespository.getDepartmentHeadByIdAndEnabledIsTrue(departmentId);
 
         apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Head Details", departmentHeadDetails);
 
@@ -119,7 +119,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         String currentPath2 = currentPath+"/departmentId";
 
-        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(request.getDepartmentId());
+        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadByIdAndEnabledIsTrue(request.getDepartmentId());
 
         if(departmentHead == null){
             throw new NotFoundException("Invalid department Id", currentPath2 );
@@ -156,7 +156,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         ApiResponse apiResponse;
 
-        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadById(departmentHeadId);
+        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadByIdAndEnabledIsTrue(departmentHeadId);
 
         if (departmentHead == null) {
             throw new NotFoundException("Invalid Department Head Id", currentPath);

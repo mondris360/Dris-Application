@@ -26,7 +26,7 @@ public class DepartmentHeadController {
     }
 
     @GetMapping("/departmentHead")
-    ResponseEntity<ApiResponse> getDepartmentHeads(){
+    ResponseEntity<ApiResponse> getCurrentDepartmentHeads(){
         return departmentHeadService.getAllDepartmentHeads();
     }
 
