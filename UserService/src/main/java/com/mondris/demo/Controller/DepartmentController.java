@@ -37,4 +37,11 @@ public class DepartmentController {
     }
 
 
+    @DeleteMapping("/department/{departmentId}")
+    ResponseEntity<ApiResponse> DeleteDepartmentById(@PathVariable long departmentId){
+
+        return  departmentService.deleteDepartmentById(departmentId);
+    }
+
+
 }

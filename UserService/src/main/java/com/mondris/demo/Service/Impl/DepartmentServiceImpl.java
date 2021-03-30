@@ -92,6 +92,20 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public ResponseEntity<ApiResponse> deleteDepartmentById(long departmentId) {
-        return null;
+
+        ApiResponse apiResponse;
+
+        boolean isValidId = departmentRepository.existsById(departmentId);
+
+        if(!isValidId){
+
+            throw new NotFoundException("Invalid Department Id", currentPath);
+        }
+
+        departmentRepository.deleteById(departmentId);
+
+        apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Department Was Deleted Successfully");
+
+        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 }
