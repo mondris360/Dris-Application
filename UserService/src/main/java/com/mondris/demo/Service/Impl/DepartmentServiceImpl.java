@@ -1,11 +1,14 @@
 package com.mondris.demo.Service.Impl;
 
+import com.mondris.demo.Dto.ChangeDepartmentNameReqDto;
+import com.mondris.demo.Dto.ChangeDepartmentNoteReqDto;
 import com.mondris.demo.Dto.DepartmentReqDto;
 import com.mondris.demo.Model.Department;
 import com.mondris.demo.Repository.DepartmentHeadRespository;
 import com.mondris.demo.Repository.DepartmentRepository;
 import com.mondris.demo.Service.DepartmentService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +25,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Resource
     private DepartmentHeadRespository departmentHeadRespository;
 
-    private  String currentPath =  "/createDepartment";
+    private  String currentPath =  "/department";
 
     @Override
     public ResponseEntity<ApiResponse> createDepartment(DepartmentReqDto request) {
@@ -63,17 +66,37 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
     @Override
-    public ResponseEntity<ApiResponse> changeDepartmentName() {
+    public ResponseEntity<ApiResponse> changeDepartmentName(ChangeDepartmentNameReqDto request) {
+
+        ApiResponse apiResponse;
+
+        String currentPath = "";
+
+        final Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
+
+        if (department ==  null){
+
+            throw new NotFoundException("Invalid Department Id", currentPath);
+        }
+
+        department.setName(request.getName().trim().toLowerCase());
+
+        final Department updatedDepartmentDetails = departmentRepository.save(department);
+
+        apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Name Was Successfully Changed", updatedDepartmentDetails);
+
+        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+
+
+    }
+
+    @Override
+    public ResponseEntity<ApiResponse> changeDepartmentNoteText(ChangeDepartmentNoteReqDto request) {
         return null;
     }
 
     @Override
-    public ResponseEntity<ApiResponse> changeDepartmentNoteText() {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<ApiResponse> deleteDepartmentById() {
+    public ResponseEntity<ApiResponse> deleteDepartmentById(long departmentId) {
         return null;
     }
 }
