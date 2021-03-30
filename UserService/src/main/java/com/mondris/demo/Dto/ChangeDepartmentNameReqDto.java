@@ -7,7 +7,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ChangeDepartmentNameDto {
+public class ChangeDepartmentNameReqDto {
     private long departmentId;
     private String newName;
 }
