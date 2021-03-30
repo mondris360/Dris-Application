@@ -1,6 +1,6 @@
 package com.mondris.demo.Controller;
 
-import com.mondris.demo.Dto.ChangeDepartmentReqDto;
+import com.mondris.demo.Dto.UpdateDepartmentReqDto;
 import com.mondris.demo.Dto.DepartmentReqDto;
 import com.mondris.demo.Service.DepartmentService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
@@ -31,7 +31,7 @@ public class DepartmentController {
     }
 
     @PutMapping("/department")
-    ResponseEntity<ApiResponse> updateDepartmentDetails(@Valid @RequestBody ChangeDepartmentReqDto request){
+    ResponseEntity<ApiResponse> updateDepartmentDetails(@Valid @RequestBody UpdateDepartmentReqDto request){
 
         return  departmentService.updateDepartmentDetails(request);
     }

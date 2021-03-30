@@ -3,17 +3,21 @@ package com.mondris.demo.Dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @Getter
 @Setter
-public class ChangeDepartmentReqDto {
+public class UpdateDepartmentReqDto {
 
-    @NotBlank(message = "departmentId is mandatory")
-    private long departmentId;
+    @NotNull(message =  "departmentId is mandatory")
+    @Positive(message = "departmentId  must be a positive integer")
+    private Long departmentId;
 
 
     @NotBlank(message = "name is mandatory")

@@ -12,8 +12,10 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DepartmentReqDto {
+
     @NotBlank(message = "name is  mandatory")
     private String name;
+
     @Size(max =  2000, message = "note must  be lesser than or equal to 2000 characters")
     private String note;
 }
