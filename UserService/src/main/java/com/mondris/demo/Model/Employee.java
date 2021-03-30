@@ -1,5 +1,6 @@
 package com.mondris.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class Employee{
 
     @JoinColumn(name = "employment_details")
     @OneToOne(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private EmploymentDetails employmentDetails;
 
     @Column(name = "phone_contact")
@@ -35,9 +37,11 @@ public class Employee{
 
     @OneToMany(mappedBy = "employeeId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Column(name="employee_appraisals")
+    @JsonIgnore
     private Set<EmployeeAppraisal> employeeAppraisals;
 
     @OneToMany(mappedBy= "employee", fetch =  FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<OfficialLeave> officialLeaves;
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)

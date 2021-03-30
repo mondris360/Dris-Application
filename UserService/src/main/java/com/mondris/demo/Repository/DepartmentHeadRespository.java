@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface DepartmentHeadRespository  extends JpaRepository<DepartmentHead, Long> {
     DepartmentHead getDepartmentHeadByIdAndEnabledIsTrue(long departmentHeadId);
-    DepartmentHead getDepartmentHeadByEmployee_Email(String userEmailAddress);
-    List<DepartmentHead> getAllByEnabledIsTrue();
+    DepartmentHead getDepartmentHeadByEmployee_EmailAndEnabledIsTrue(String userEmailAddress);
+    List<DepartmentHead> getDepartmentHeadByEnabledIsTrue();
 }

@@ -2,11 +2,10 @@ package com.mondris.demo.Service.Impl;
 
 import com.mondris.demo.Dto.DepartmentReqDto;
 import com.mondris.demo.Model.Department;
-import com.mondris.demo.Model.DepartmentHead;
 import com.mondris.demo.Repository.DepartmentHeadRespository;
 import com.mondris.demo.Repository.DepartmentRepository;
 import com.mondris.demo.Service.DepartmentService;
-import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +33,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         final Department department = departmentRepository.findDepartmentByName(departmentName);
 
         if (department != null){
-            throw new IllegalArgumentException("Department name already exists");
+            throw new IllegalArgumentException("Department name already exists", currentPath);
         }
 
 

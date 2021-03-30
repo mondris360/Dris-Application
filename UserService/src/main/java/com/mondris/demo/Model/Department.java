@@ -8,6 +8,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,10 +20,9 @@ public class Department extends BaseModel {
     @NotBlank(message = "department name is mandatory")
     private String name;
 
-    @OneToOne(mappedBy = "department", cascade = CascadeType.ALL)
-    @JoinColumn(name="department_head")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     @JsonIgnore
-    private DepartmentHead   departmentHead;
+    private List<DepartmentHead> departmentHead;
 
     @OneToMany(mappedBy = "department")
     @JsonIgnore

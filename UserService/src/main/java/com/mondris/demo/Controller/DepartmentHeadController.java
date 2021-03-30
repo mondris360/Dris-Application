@@ -17,26 +17,30 @@ public class DepartmentHeadController {
 
     @PostMapping("/departmentHead")
     ResponseEntity<ApiResponse> createDepartmentHead(@RequestBody DepartmentHeadReqDto request){
-        return departmentHeadService.createDepartmentHead(request);
-    }
 
-    @GetMapping("/departmentHead/{departmentId}")
-     ResponseEntity<ApiResponse> getDepartmentHeadByDepartmentId(@PathVariable long departmentId){
-        return departmentHeadService.getByDepartmentId(departmentId);
+        return departmentHeadService.createDepartmentHead(request);
     }
 
     @GetMapping("/departmentHead")
     ResponseEntity<ApiResponse> getCurrentDepartmentHeads(){
+
         return departmentHeadService.getAllDepartmentHeads();
     }
 
     @PutMapping("/departmentHead")
     ResponseEntity<ApiResponse> changeDepartmentHead(@RequestBody ChangeDepartmentHeadReqDto request){
+
         return departmentHeadService.changeDepartmentHead(request);
+    }
+
+    @GetMapping("/departmentHead/{departmentHeadId}")
+    ResponseEntity<ApiResponse> getDepartmentHeadByDepartmentHeadId(@PathVariable long departmentHeadId){
+        return departmentHeadService.getByDepartmentHeadId(departmentHeadId);
     }
 
     @DeleteMapping("/departmentHead/{id}")
     ResponseEntity<ApiResponse> deleteDepartmentHeadById(@PathVariable long id){
+
         return departmentHeadService.deleteDepartHeadById(id);
     }
 

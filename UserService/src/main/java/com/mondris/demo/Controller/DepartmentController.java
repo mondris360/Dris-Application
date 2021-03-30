@@ -26,7 +26,6 @@ public class DepartmentController {
     }
 
 
-
     @GetMapping("/getDepartments")
     ResponseEntity<ApiResponse> getDepartments(){
 

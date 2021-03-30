@@ -45,23 +45,24 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         ApiResponse apiResponse;
 
-        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadByEmployee_Email(departmentHeadEmail);
+        final DepartmentHead departmentHead = departmentHeadRespository.
+                getDepartmentHeadByEmployee_EmailAndEnabledIsTrue(departmentHeadEmail);
 
         if(departmentHead != null){
-            throw  new IllegalArgumentException("A department head with that email already exist", currentPath);
+            throw  new IllegalArgumentException("A Department Head With That Email Already Exist", currentPath);
         }
 
         Employee employee = userRepository.getByEmail(departmentHeadEmail);
 
         if (employee == null){
 
-            throw new UserNotFoundException("Invalid user email Address", currentPath);
+            throw new UserNotFoundException("Invalid User Email Address", currentPath);
         }
 
         Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
 
         if ( department == null){
-            throw  new NotFoundException("Invalid department Id", currentPath );
+            throw  new NotFoundException("Invalid Department Id", currentPath );
         }
 
         DepartmentHead newDepartmentHead =  new DepartmentHead();
@@ -85,12 +86,14 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         return new ResponseEntity<ApiResponse>(apiResponse, apiResponse.getHttpStatus());
     }
 
+
+
     @Override
     public ResponseEntity<ApiResponse> getAllDepartmentHeads() {
 
         ApiResponse apiResponse;
 
-        final List<DepartmentHead> getDepartmentsHeads = departmentHeadRespository.getAllByEnabledIsTrue();
+        final List<DepartmentHead> getDepartmentsHeads = departmentHeadRespository.getDepartmentHeadByEnabledIsTrue();
 
         apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "List of Department Heads", getDepartmentsHeads);
 
@@ -100,12 +103,16 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
 
     @Override
-    public ResponseEntity<ApiResponse> getByDepartmentId(long departmentId) {
+    public ResponseEntity<ApiResponse> getByDepartmentHeadId(long departmentId) {
 
         ApiResponse apiResponse;
+        String currentPath = "/departmentHead/{departmentHeadId}";
 
         final DepartmentHead departmentHeadDetails = departmentHeadRespository.getDepartmentHeadByIdAndEnabledIsTrue(departmentId);
 
+        if (departmentHeadDetails == null){
+            throw new NotFoundException("Invalid/Inactive Department Head Id", currentPath);
+        }
         apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Head Details", departmentHeadDetails);
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
@@ -134,7 +141,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         }
 
         final DepartmentHead userIsAlreadyADeptHead = departmentHeadRespository.
-                getDepartmentHeadByEmployee_Email(newDepartmentHeadEmail);
+                getDepartmentHeadByEmployee_EmailAndEnabledIsTrue(newDepartmentHeadEmail);
 
         if (userIsAlreadyADeptHead != null){
 
@@ -159,7 +166,8 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadByIdAndEnabledIsTrue(departmentHeadId);
 
         if (departmentHead == null) {
-            throw new NotFoundException("Invalid Department Head Id", currentPath);
+
+            throw new NotFoundException("Invalid/deleted Department Head Id", currentPath);
         }
 
         departmentHead.setEnabled(false);

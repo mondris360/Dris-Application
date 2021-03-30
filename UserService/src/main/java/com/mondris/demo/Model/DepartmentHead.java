@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name="department_head")
 @Entity
@@ -20,7 +21,7 @@ public class DepartmentHead  extends BaseModel {
     private Employee employee;
 
     @JoinColumn(name="department_id_fkey")
-    @OneToOne
+    @ManyToOne
     private Department department;
 
     private String note;

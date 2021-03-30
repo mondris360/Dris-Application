@@ -13,7 +13,8 @@ public interface DepartmentHeadService {
 
      ResponseEntity<ApiResponse> getAllDepartmentHeads();
 
-     ResponseEntity<ApiResponse> getByDepartmentId(long departmentId);
+     ResponseEntity<ApiResponse> getByDepartmentHeadId(long departmentId);
+
 
      ResponseEntity<ApiResponse> changeDepartmentHead(ChangeDepartmentHeadReqDto request);
 
