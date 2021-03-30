@@ -19,14 +19,14 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
 
-    @PostMapping("/createDepartment")
+    @PostMapping("/department")
     ResponseEntity<ApiResponse> createDepartment( @Valid @RequestBody DepartmentReqDto request){
 
         return departmentService.createDepartment(request);
     }
 
 
-    @GetMapping("/getDepartments")
+    @GetMapping("/department")
     ResponseEntity<ApiResponse> getDepartments(){
 
         return departmentService.getAllDepartments();
