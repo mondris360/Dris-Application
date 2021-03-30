@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 @Setter
 @Getter
 public class ChangeDepartmentNoteReqDto {
+
     @NotBlank(message = "departmentId is mandatory")
     private long departmentId;
 
