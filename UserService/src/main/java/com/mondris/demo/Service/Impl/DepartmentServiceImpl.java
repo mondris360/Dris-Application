@@ -1,7 +1,6 @@
 package com.mondris.demo.Service.Impl;
 
 import com.mondris.demo.Dto.ChangeDepartmentNameReqDto;
-import com.mondris.demo.Dto.ChangeDepartmentNoteReqDto;
 import com.mondris.demo.Dto.DepartmentReqDto;
 import com.mondris.demo.Model.Department;
 import com.mondris.demo.Repository.DepartmentHeadRespository;

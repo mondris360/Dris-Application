@@ -1,7 +1,6 @@
 package com.mondris.demo.Service;
 
 import com.mondris.demo.Dto.ChangeDepartmentNameReqDto;
-import com.mondris.demo.Dto.ChangeDepartmentNoteReqDto;
 import com.mondris.demo.Dto.DepartmentReqDto;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.ResponseEntity;
