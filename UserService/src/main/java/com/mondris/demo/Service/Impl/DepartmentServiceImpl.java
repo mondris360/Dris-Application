@@ -81,9 +81,9 @@ public class DepartmentServiceImpl implements DepartmentService {
         department.setName(request.getName().trim().toLowerCase());
         department.setNote(request.getNote());
 
-        final Department updatedDepartmentDetails = departmentRepository.save(department);
+        final Department updatedDepartment = departmentRepository.save(department);
 
-        apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Name Was Successfully Changed", updatedDepartmentDetails);
+        apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Was Successfully Updated", updatedDepartment);
 
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
 

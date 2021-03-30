@@ -1,13 +1,11 @@
 package com.mondris.demo.Controller;
 
+import com.mondris.demo.Dto.ChangeDepartmentReqDto;
 import com.mondris.demo.Dto.DepartmentReqDto;
 import com.mondris.demo.Service.DepartmentService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -30,6 +28,12 @@ public class DepartmentController {
     ResponseEntity<ApiResponse> getDepartments(){
 
         return departmentService.getAllDepartments();
+    }
+
+    @PutMapping("/department")
+    ResponseEntity<ApiResponse> updateDepartmentDetails(@Valid @RequestBody ChangeDepartmentReqDto request){
+
+        return  departmentService.updateDepartmentDetails(request);
     }
 
 
