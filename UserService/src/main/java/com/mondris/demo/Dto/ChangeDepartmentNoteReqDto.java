@@ -14,7 +14,7 @@ public class ChangeDepartmentNoteReqDto {
     @NotBlank(message = "departmentId is mandatory")
     private long departmentId;
 
-    @NotBlank(message = "newNote is mandatory")
+    @NotBlank(message = "note is mandatory")
     @Size(max =  2000, message = "newNote must  be lesser than or equal to 2000 characters")
-    private  String newNote;
+    private  String note;
 }
