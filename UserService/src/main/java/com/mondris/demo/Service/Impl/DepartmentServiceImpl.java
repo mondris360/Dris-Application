@@ -65,7 +65,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
     @Override
-    public ResponseEntity<ApiResponse> changeDepartmentName(ChangeDepartmentReqDto request) {
+    public ResponseEntity<ApiResponse> updateDepartmentDetails(ChangeDepartmentReqDto request) {
 
         ApiResponse apiResponse;
 
@@ -79,6 +79,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         }
 
         department.setName(request.getName().trim().toLowerCase());
+        department.setNote(request.getNote());
 
         final Department updatedDepartmentDetails = departmentRepository.save(department);
 
@@ -86,13 +87,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
 
-
     }
 
-    @Override
-    public ResponseEntity<ApiResponse> changeDepartmentNoteText(ChangeDepartmentNoteReqDto request) {
-        return null;
-    }
 
     @Override
     public ResponseEntity<ApiResponse> deleteDepartmentById(long departmentId) {
