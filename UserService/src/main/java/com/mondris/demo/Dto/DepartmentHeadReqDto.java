@@ -21,7 +21,6 @@ public class DepartmentHeadReqDto {
     @NotBlank(message = "departmentId is mandatory")
     private long departmentId;
 
-
     @Size(max=2000, message = "note must be lesser than or equal to 2000 characters")
     private String note;
 }

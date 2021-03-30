@@ -2,7 +2,6 @@ package com.mondris.demo.Dto;
 
 import lombok.*;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
