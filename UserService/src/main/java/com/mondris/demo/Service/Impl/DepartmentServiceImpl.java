@@ -1,6 +1,6 @@
 package com.mondris.demo.Service.Impl;
 
-import com.mondris.demo.Dto.ChangeDepartmentNameReqDto;
+import com.mondris.demo.Dto.ChangeDepartmentReqDto;
 import com.mondris.demo.Dto.DepartmentReqDto;
 import com.mondris.demo.Model.Department;
 import com.mondris.demo.Repository.DepartmentHeadRespository;
@@ -65,7 +65,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
     @Override
-    public ResponseEntity<ApiResponse> changeDepartmentName(ChangeDepartmentNameReqDto request) {
+    public ResponseEntity<ApiResponse> changeDepartmentName(ChangeDepartmentReqDto request) {
 
         ApiResponse apiResponse;
 
