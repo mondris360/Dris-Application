@@ -95,6 +95,10 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         final List<DepartmentHead> getDepartmentsHeads = departmentHeadRespository.getDepartmentHeadByEnabledIsTrue();
 
+         if (getDepartmentsHeads == null){
+             throw new NotFoundException("No Department  Found", currentPath);
+         }
+
         apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "List of Department Heads", getDepartmentsHeads);
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
@@ -117,6 +121,26 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
+
+
+    @Override
+    public ResponseEntity<ApiResponse> getByDepartmentId(long departmentId) {
+
+       String currentPath = "/departmentHeadByDepartmentId/{departmentHeadId}";
+
+       ApiResponse apiResponse;
+
+        final DepartmentHead departmentHead = departmentHeadRespository.getDepartmentHeadByDepartment_IdAndEnabledIsTrue(departmentId);
+
+        if (departmentHead == null){
+
+            throw new NotFoundException("Invalid Department Id", currentPath);
+        }
+        apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Head Details", departmentHead);
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
 
     @Override
     public ResponseEntity<ApiResponse> changeDepartmentHead(ChangeDepartmentHeadReqDto request) {
@@ -178,4 +202,9 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
+
+
+
+
+
 }

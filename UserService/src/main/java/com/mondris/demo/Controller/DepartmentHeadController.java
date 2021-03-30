@@ -38,6 +38,12 @@ public class DepartmentHeadController {
         return departmentHeadService.getByDepartmentHeadId(departmentHeadId);
     }
 
+    @GetMapping("/departmentHeadByDepartmentId/{departmentHeadId}")
+    ResponseEntity<ApiResponse> getDepartmentHeadByDepartmentId(@PathVariable long departmentHeadId){
+        return departmentHeadService.getByDepartmentId(departmentHeadId);
+    }
+
+
     @DeleteMapping("/departmentHead/{id}")
     ResponseEntity<ApiResponse> deleteDepartmentHeadById(@PathVariable long id){
 
