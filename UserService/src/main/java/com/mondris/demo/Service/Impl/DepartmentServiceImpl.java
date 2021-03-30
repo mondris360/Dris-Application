@@ -60,4 +60,20 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
+
+
+    @Override
+    public ResponseEntity<ApiResponse> changeDepartmentName() {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<ApiResponse> changeDepartmentNoteText() {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<ApiResponse> deleteDepartmentById() {
+        return null;
+    }
 }
