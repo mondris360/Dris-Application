@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 public interface DepartmentService {
     ResponseEntity<ApiResponse> createDepartment(DepartmentReqDto request);
     ResponseEntity<ApiResponse> getAllDepartments();
-    ResponseEntity<ApiResponse> changeDepartmentName(ChangeDepartmentReqDto request);
-    ResponseEntity<ApiResponse> changeDepartmentNoteText(ChangeDepartmentNoteReqDto request);
+    ResponseEntity<ApiResponse> updateDepartmentDetails(ChangeDepartmentReqDto request);
     ResponseEntity<ApiResponse> deleteDepartmentById(long departmentId);
 
 
