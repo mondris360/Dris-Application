@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -27,6 +27,11 @@ public class SubDepartment extends BaseModel {
     @ManyToOne
     @JsonIgnore
     private Department department;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "created_by_user_email")
+    private Employee employee;
 
 
 

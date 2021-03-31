@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +19,10 @@ public class SubDepartmentReqDto {
 
     @NotBlank(message = "name is mandatory")
     private  String name;
+
+    @NotBlank(message = "email is mandatory")
+    @Email
+    private String createdByUserEmail;
 
     @Size(max =  2000, message = "note must  be lesser than or equal to 2000 characters")
     private String note;

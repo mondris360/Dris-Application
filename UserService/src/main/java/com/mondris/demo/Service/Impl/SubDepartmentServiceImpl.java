@@ -2,9 +2,11 @@ package com.mondris.demo.Service.Impl;
 
 import com.mondris.demo.Dto.SubDepartmentReqDto;
 import com.mondris.demo.Model.Department;
+import com.mondris.demo.Model.Employee;
 import com.mondris.demo.Model.SubDepartment;
 import com.mondris.demo.Repository.DepartmentRepository;
 import com.mondris.demo.Repository.SubDepartmentRepository;
+import com.mondris.demo.Repository.UserRepository;
 import com.mondris.demo.Service.SubDepartmentService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
@@ -25,11 +27,21 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     @Resource
     private SubDepartmentRepository subDepartmentRepository;
 
+    @Resource
+    private UserRepository userRepository;
+
     private String currentPath = "/subDepartment";
 
 
     @Override
     public ResponseEntity<ApiResponse> createSubDepartment(SubDepartmentReqDto request) {
+
+        final Employee createdByUser = userRepository.getByEmail(request.getCreatedByUserEmail());
+
+        if(createdByUser ==  null){
+
+            throw new NotFoundException("Invalid user email address", currentPath);
+        }
 
         final Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
 
@@ -51,6 +63,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
         newSubDepartment.setName(subDepartmentName);
         newSubDepartment.setNote(request.getNote());
         newSubDepartment.setDepartment(department);
+        // the user that is creating the subDepartment
+        newSubDepartment.setEmployee(createdByUser);
 
         final SubDepartment createdSubDepartment = subDepartmentRepository.save(newSubDepartment);
 
