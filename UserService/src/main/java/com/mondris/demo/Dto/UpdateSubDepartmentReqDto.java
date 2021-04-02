@@ -25,7 +25,7 @@ public class UpdateSubDepartmentReqDto {
     @NotBlank(message = "name is mandatory")
     private  String name;
 
-    @NotBlank(message = "email is mandatory")
+    @NotBlank(message = "updatedByUserEmail is mandatory")
     @Email
     private String updatedByUserEmail;
 

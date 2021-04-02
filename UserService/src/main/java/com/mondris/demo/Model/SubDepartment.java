@@ -16,7 +16,6 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class SubDepartment extends BaseModel {
 
     @NotBlank(message = "name is mandatory")

@@ -19,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -68,6 +69,33 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
         return commonOperations(subDeptCommonOperationsDto);
     }
 
+    @Override
+    public ApiResponse getSubDepartmentById(long id) {
+
+        String currentPath2 =  currentPath + "/id";
+
+        final SubDepartment subDepartment = subDepartmentRepository.getById(id);
+
+        if (subDepartment == null){
+
+            throw new NotFoundException("Invalid subDepartment Id", currentPath2);
+        }
+
+        ApiResponse apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Sub Department Details", subDepartment);
+
+        return apiResponse;
+    }
+
+    @Override
+    public ApiResponse deleteSubDepartmentById(long id) {
+        return null;
+    }
+
+    @Override
+    public List<ApiResponse> getAllSubDepartments() {
+
+        return null;
+    }
 
 
     private ResponseEntity<ApiResponse> commonOperations(SubDeptCommonOperationsDto request){
@@ -140,4 +168,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
+
+
+
+
 }
