@@ -74,32 +74,34 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         String currentPath2 =  currentPath + "/id";
 
-        final SubDepartment subDepartment = subDepartmentRepository.getById(id);
+        final SubDepartment subDepartment = findSubDepartmentById(id, currentPath2);
 
-        if (subDepartment == null){
-
-            throw new NotFoundException("Invalid subDepartment Id", currentPath2);
-        }
 
         return  new ApiResponse("Successful", HttpStatus.OK, "Sub Department Details", subDepartment);
 
     }
 
-    @Override
-    public ApiResponse deleteSubDepartmentById(long id) {
-        return null;
-    }
 
     @Override
     public ApiResponse getAllSubDepartments() {
 
         final List<SubDepartment> allSubDepartments = subDepartmentRepository.findAll();
 
-        ApiResponse apiResponse = new ApiResponse("Successful", HttpStatus.OK,
-                "A List of All SubDepartments", allSubDepartments);
+        return  new ApiResponse("Successful", HttpStatus.OK, "A List of All SubDepartments", allSubDepartments);
 
-        return apiResponse;
     }
+
+    @Override
+    public ApiResponse deleteSubDepartmentById(long id) {
+
+        final SubDepartment subDepartment = findSubDepartmentById(id, currentPath);
+
+        subDepartmentRepository.delete(subDepartment);
+
+        return new ApiResponse("Successful", HttpStatus.OK, "Sub Department Was Successfully Deleted");
+
+    }
+
 
 
     private ResponseEntity<ApiResponse> commonOperations(SubDeptCommonOperationsDto request){
@@ -174,6 +176,17 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     }
 
 
+    private  SubDepartment findSubDepartmentById(long id, String currentPath){
+
+        final SubDepartment subDepartment = subDepartmentRepository.getById(id);
+
+        if (subDepartment == null){
+
+            throw new NotFoundException("Invalid subDepartment Id", currentPath);
+        }
+
+        return  subDepartment;
+    }
 
 
 }
