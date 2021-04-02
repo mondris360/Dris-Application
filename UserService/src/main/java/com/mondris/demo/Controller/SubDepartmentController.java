@@ -37,11 +37,11 @@ public class SubDepartmentController {
 
 
     @GetMapping("/subDepartment")
-    ResponseEntity<ApiResponse> getAllDepartments(){
+    ResponseEntity<ApiResponse> getAllSubDepartments(){
 
         final ApiResponse allSubDepartments = subDepartmentService.getAllSubDepartments();
 
-        return new ResponseEntity<ApiResponse>(allSubDepartments, HttpStatus.OK);
+        return new ResponseEntity<>(allSubDepartments, HttpStatus.OK);
 
     }
 
@@ -50,6 +50,14 @@ public class SubDepartmentController {
     ResponseEntity<ApiResponse> updateSubDepartment(@Valid @RequestBody UpdateSubDepartmentReqDto request){
 
         final ApiResponse apiResponse = subDepartmentService.updatedSubDepartment(request);
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
+    @DeleteMapping("/subDepartment/{id}")
+    ResponseEntity<ApiResponse> deleteSubDepartmentById(@PathVariable  long id){
+
+        final ApiResponse apiResponse = subDepartmentService.deleteSubDepartmentById(id);
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
