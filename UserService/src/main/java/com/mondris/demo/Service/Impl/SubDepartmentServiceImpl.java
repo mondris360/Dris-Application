@@ -34,7 +34,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     @Resource
     private UserRepository userRepository;
 
-    private String currentPath = "/subDepartment";
+    private final String currentPath = "/subDepartment";
 
 
     @Override
@@ -92,6 +92,16 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     }
 
     @Override
+    public ApiResponse getAllSubDepartmentsByDeptId(long id) {
+
+        final List<SubDepartment> allSubDepartmentsInADept = subDepartmentRepository.getAllByDepartment_Id(id);
+
+        return  new ApiResponse("Successful", HttpStatus.OK,"A List of  ALl Sub Departments In A Department",
+                allSubDepartmentsInADept);
+
+    }
+
+    @Override
     public ApiResponse deleteSubDepartmentById(long id) {
 
         final SubDepartment subDepartment = findSubDepartmentById(id, currentPath);
@@ -101,6 +111,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
         return new ApiResponse("Successful", HttpStatus.OK, "Sub Department Was Successfully Deleted");
 
     }
+
+
 
 
 

@@ -62,5 +62,12 @@ public class SubDepartmentController {
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
+    @GetMapping("/subDepartments/{departmentId}")
+    ResponseEntity<ApiResponse> getAllSubDepartmentsByDeptId(@PathVariable  long departmentId){
+
+        final ApiResponse apiResponse = subDepartmentService.getAllSubDepartmentsByDeptId(departmentId);
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
 
 }
