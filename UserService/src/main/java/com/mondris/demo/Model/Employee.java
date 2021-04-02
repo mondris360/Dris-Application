@@ -47,8 +47,13 @@ public class Employee{
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
     private Set<Address> address;
 
-    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
+    @OneToMany(mappedBy = "created_by_user", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
     @JsonIgnore
-    private Set<SubDepartment> subDepartmentCreated;
+    private Set<SubDepartment> subDepartmentsCreated;
+
+
+    @OneToMany(mappedBy = "updated_by_user", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
+    @JsonIgnore
+    private Set<SubDepartment> subDepartmentsUpdated;
 
 }
