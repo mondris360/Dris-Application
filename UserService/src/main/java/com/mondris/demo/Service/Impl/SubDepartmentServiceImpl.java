@@ -81,9 +81,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
             throw new NotFoundException("Invalid subDepartment Id", currentPath2);
         }
 
-        ApiResponse apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Sub Department Details", subDepartment);
+        return  new ApiResponse("Successful", HttpStatus.OK, "Sub Department Details", subDepartment);
 
-        return apiResponse;
     }
 
     @Override
@@ -92,9 +91,14 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     }
 
     @Override
-    public List<ApiResponse> getAllSubDepartments() {
+    public ApiResponse getAllSubDepartments() {
 
-        return null;
+        final List<SubDepartment> allSubDepartments = subDepartmentRepository.findAll();
+
+        ApiResponse apiResponse = new ApiResponse("Successful", HttpStatus.OK,
+                "A List of All SubDepartments", allSubDepartments);
+
+        return apiResponse;
     }
 
 

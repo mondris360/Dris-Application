@@ -15,6 +15,6 @@ public interface SubDepartmentService {
     ResponseEntity<ApiResponse> updatedSubDepartment(UpdateSubDepartmentReqDto request);
     ApiResponse getSubDepartmentById(long id);
     ApiResponse deleteSubDepartmentById(long id);
-    List<ApiResponse> getAllSubDepartments();
+    ApiResponse getAllSubDepartments();
 
 }
