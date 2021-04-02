@@ -38,7 +38,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
 
     @Override
-    public ResponseEntity<ApiResponse> createSubDepartment(SubDepartmentReqDto request) {
+    public ApiResponse createSubDepartment(SubDepartmentReqDto request) {
 
            SubDeptCommonOperationsDto subDeptCommonOperationsDto =   new SubDeptCommonOperationsDto();
            subDeptCommonOperationsDto.setDepartmentId(request.getDepartmentId());
@@ -54,7 +54,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
 
     @Override
-    public ResponseEntity<ApiResponse> updatedSubDepartment(UpdateSubDepartmentReqDto request) {
+    public ApiResponse updatedSubDepartment(UpdateSubDepartmentReqDto request) {
 
         SubDeptCommonOperationsDto subDeptCommonOperationsDto =   new SubDeptCommonOperationsDto();
         subDeptCommonOperationsDto.setDepartmentId(request.getDepartmentId());
@@ -104,7 +104,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
 
 
-    private ResponseEntity<ApiResponse> commonOperations(SubDeptCommonOperationsDto request){
+    private ApiResponse commonOperations(SubDeptCommonOperationsDto request){
 
         final Employee employee = userRepository.getByEmail(request.getUserEmail());
 
@@ -128,9 +128,9 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
         final SubDepartment subDepartment;
 
         // create a new sub department
-        if (operationType.equals("create")){
+        final SubDepartment subDepartmentByName = subDepartmentRepository.getByName(subDepartmentName);
 
-            final SubDepartment subDepartmentByName = subDepartmentRepository.getByName(subDepartmentName);
+        if (operationType.equals("create")){
 
             if (subDepartmentByName != null){
 
@@ -148,15 +148,9 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         } else {  // update already existing subDepartment
 
-            final SubDepartment subDepartmentByName = subDepartmentRepository.getByName(subDepartmentName);
+            final SubDepartment subDepartmentById = findSubDepartmentById(request.getSubDepartmentId(), currentPath);
 
-            final SubDepartment subDepartmentById = subDepartmentRepository.getById(request.getSubDepartmentId());
-
-            if (subDepartmentById == null) {
-
-                throw new IllegalArgumentException("Invalid subDepartment Id",  currentPath);
-
-            } else if( subDepartmentByName != null  && (subDepartmentById.getId() != subDepartmentByName.getId())){
+            if( subDepartmentByName != null  && (subDepartmentById.getId() != subDepartmentByName.getId())){
 
                 throw new IllegalArgumentException("Your new subDepartment name already exists", currentPath);
             }
@@ -170,10 +164,10 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         }
 
-        ApiResponse apiResponse =  new ApiResponse("Successful", request.getHttpStatus(), request.getSuccessMsg(), subDepartment);
+        return new ApiResponse("Successful", request.getHttpStatus(), request.getSuccessMsg(), subDepartment);
 
-        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
+
 
 
     private  SubDepartment findSubDepartmentById(long id, String currentPath){

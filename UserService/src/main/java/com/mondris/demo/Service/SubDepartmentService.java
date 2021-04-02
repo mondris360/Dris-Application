@@ -11,8 +11,8 @@ import java.util.List;
 @Service
 public interface SubDepartmentService {
 
-    ResponseEntity<ApiResponse> createSubDepartment(SubDepartmentReqDto request);
-    ResponseEntity<ApiResponse> updatedSubDepartment(UpdateSubDepartmentReqDto request);
+    ApiResponse createSubDepartment(SubDepartmentReqDto request);
+    ApiResponse updatedSubDepartment(UpdateSubDepartmentReqDto request);
     ApiResponse getSubDepartmentById(long id);
     ApiResponse deleteSubDepartmentById(long id);
     ApiResponse getAllSubDepartments();

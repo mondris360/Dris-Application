@@ -27,8 +27,6 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/SubDepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/SubDepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UpdateSubDepartmentReqDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UpdateSubDepartmentReqDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/SubDepartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Model/SubDepartment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/SubDepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/SubDepartmentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/SubDepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/SubDepartmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/resources/application.properties" afterDir="false" />
@@ -129,7 +127,7 @@
       <workItem from="1616952624767" duration="29062000" />
       <workItem from="1617295342037" duration="276000" />
       <workItem from="1617302144272" duration="1312000" />
-      <workItem from="1617357081007" duration="9943000" />
+      <workItem from="1617357081007" duration="12265000" />
     </task>
     <servers />
   </component>
