@@ -2,10 +2,7 @@ package com.mondris.demo.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mondris.demo.Model.BaseModel.BaseModel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -19,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class SubDepartment extends BaseModel {
 
     @NotBlank(message = "name is mandatory")

@@ -55,7 +55,17 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     @Override
     public ResponseEntity<ApiResponse> updatedSubDepartment(UpdateSubDepartmentReqDto request) {
 
-        return null;
+        SubDeptCommonOperationsDto subDeptCommonOperationsDto =   new SubDeptCommonOperationsDto();
+        subDeptCommonOperationsDto.setDepartmentId(request.getDepartmentId());
+        subDeptCommonOperationsDto.setSubDepartmentId(request.getSubDepartmentId());
+        subDeptCommonOperationsDto.setHttpStatus(HttpStatus.OK);
+        subDeptCommonOperationsDto.setNote(request.getNote());
+        subDeptCommonOperationsDto.setOperationType("update");
+        subDeptCommonOperationsDto.setSuccessMsg("subDepartment Was Successfully Updated");
+        subDeptCommonOperationsDto.setSubDepartmentName(request.getName());
+        subDeptCommonOperationsDto.setUserEmail(request.getUpdatedByUserEmail());
+
+        return commonOperations(subDeptCommonOperationsDto);
     }
 
 
@@ -78,7 +88,6 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         String subDepartmentName = request.getSubDepartmentName().trim().toLowerCase();
 
-        final SubDepartment subDepartmentByName = subDepartmentRepository.getByName(subDepartmentName);
 
         String operationType =  request.getOperationType().toLowerCase().trim();
 
@@ -86,6 +95,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         // create a new sub department
         if (operationType.equals("create")){
+
+            final SubDepartment subDepartmentByName = subDepartmentRepository.getByName(subDepartmentName);
 
             if (subDepartmentByName != null){
 
@@ -103,10 +114,15 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         } else {  // update already existing subDepartment
 
+            final SubDepartment subDepartmentByName = subDepartmentRepository.getByName(subDepartmentName);
 
             final SubDepartment subDepartmentById = subDepartmentRepository.getById(request.getSubDepartmentId());
 
-            if(subDepartmentById.getId() != subDepartmentByName.getId()){
+            if (subDepartmentById == null) {
+
+                throw new IllegalArgumentException("Invalid subDepartment Id",  currentPath);
+
+            } else if( subDepartmentByName != null  && (subDepartmentById.getId() != subDepartmentByName.getId())){
 
                 throw new IllegalArgumentException("Your new subDepartment name already exists", currentPath);
             }
