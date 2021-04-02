@@ -102,6 +102,23 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     }
 
     @Override
+    public ApiResponse getAllSubDeptsCreatedByAUser(String userEmail) {
+
+        String currentPath = "/getAllSubDeptsCreatedByAUser/{email}";
+
+        final Employee user = userRepository.getByEmail(userEmail);
+
+        if (user == null){
+
+            throw new NotFoundException("Invalid User Email Address", currentPath);
+        }
+
+        final List<SubDepartment> subDepartmentsCreatedByAUser = subDepartmentRepository.getAllByCreatedByUser(user);
+
+        return new ApiResponse("Successful", HttpStatus.OK, "All Sub Departments Created By A User", subDepartmentsCreatedByAUser);
+    }
+
+    @Override
     public ApiResponse deleteSubDepartmentById(long id) {
 
         final SubDepartment subDepartment = findSubDepartmentById(id, currentPath);
@@ -111,6 +128,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
         return new ApiResponse("Successful", HttpStatus.OK, "Sub Department Was Successfully Deleted");
 
     }
+
+
 
 
 
@@ -154,7 +173,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
                 newSubDepartment.setNote(request.getNote());
                 newSubDepartment.setDepartment(department);
                 // the user that is creating the subDepartment
-                newSubDepartment.setCreated_by_user(employee);
+                newSubDepartment.setCreatedByUser(employee);
 
                 subDepartment = subDepartmentRepository.save(newSubDepartment);
 
@@ -170,7 +189,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
             subDepartmentById.setName(request.getSubDepartmentName());
             subDepartmentById.setDepartment(department);
             subDepartmentById.setNote(request.getNote());
-            subDepartmentById.setUpdated_by_user(employee);
+            subDepartmentById.setUpdatedByUser(employee);
 
             subDepartment = subDepartmentRepository.save(subDepartmentById);
 

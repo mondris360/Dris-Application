@@ -15,5 +15,6 @@ public interface SubDepartmentService {
     ApiResponse deleteSubDepartmentById(long id);
     ApiResponse getAllSubDepartments();
     ApiResponse getAllSubDepartmentsByDeptId(long id);
+    ApiResponse getAllSubDeptsCreatedByAUser(String userEmail);
 
 }

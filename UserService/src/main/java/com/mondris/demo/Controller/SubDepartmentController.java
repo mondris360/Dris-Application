@@ -70,4 +70,14 @@ public class SubDepartmentController {
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
+    @GetMapping("/getAllSubDeptsCreatedByAUser/{email}")
+    ResponseEntity<ApiResponse> getAllSubDeptsCreatedByAUser(@PathVariable  String email){
+
+        final ApiResponse apiResponse = subDepartmentService.getAllSubDeptsCreatedByAUser(email);
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
+
+
 }
