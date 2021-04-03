@@ -16,4 +16,8 @@ public class TeamLead extends BaseModel {
     @OneToOne
     @JoinColumn(name="employee_id_fkey")
     private Employee employee;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="sub_department_id")
+    private SubDepartment subDepartment;
 }

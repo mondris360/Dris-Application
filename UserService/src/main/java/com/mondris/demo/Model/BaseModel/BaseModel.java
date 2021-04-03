@@ -36,7 +36,6 @@ public class BaseModel {
     @JoinColumn(name = "created_by_user_email")
     private Employee createdByUser;
 
-
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "update_by_user_email")
