@@ -1,5 +1,7 @@
 package com.mondris.demo.Model.BaseModel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mondris.demo.Model.Employee;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,6 +30,18 @@ public class BaseModel {
     @UpdateTimestamp
     @Column(name="updated_at")
     private  Timestamp updatedAt;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "created_by_user_email")
+    private Employee createdByUser;
+
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "update_by_user_email")
+    private Employee updatedByUser;
+
 
     private String note;
 

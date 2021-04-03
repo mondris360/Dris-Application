@@ -20,7 +20,7 @@ public class SubDepartmentReqDto {
     @NotBlank(message = "name is mandatory")
     private  String name;
 
-    @NotBlank(message = "email is mandatory")
+    @NotBlank(message = "createdByUserEmail is mandatory")
     @Email
     private String createdByUserEmail;
 

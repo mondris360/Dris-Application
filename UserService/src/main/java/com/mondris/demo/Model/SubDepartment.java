@@ -25,19 +25,5 @@ public class SubDepartment extends BaseModel {
     @JsonIgnore
     private Department department;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "created_by_user_email")
-    private Employee createdByUser;
-
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "update_by_user_email")
-    private Employee updatedByUser;
-
-
-
-
 
 }
