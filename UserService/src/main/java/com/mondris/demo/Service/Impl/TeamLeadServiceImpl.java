@@ -27,8 +27,7 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     @Resource
     private UserRepository userRepository;
 
-    @Resource
-    private SubDepartmentRepository subDepartmentRepository;
+
 
     @Resource
     private Helper helper;
@@ -38,12 +37,7 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     @Override
     public ApiResponse createTeamLead(TeamLeadReqDto request) {
 
-        final SubDepartment subDepartment = subDepartmentRepository.getById(request.getSubDepartmentId());
-
-        if (subDepartment == null){
-
-            throw  new NotFoundException("Invalid Sub Department Id", currentPath);
-        }
+        final SubDepartment subDepartment = helper.getSubDepartmentById(request.getSubDepartmentId(), currentPath);
 
         final TeamLead teamLeadBySubDepartment = teamLeadRepository.getBySubDepartment(subDepartment);
 
@@ -76,30 +70,4 @@ public class TeamLeadServiceImpl implements TeamLeadService {
 
     }
 
-
-
-    private TeamLead getTeamLeadById(long id){
-
-        final TeamLead teamLead = teamLeadRepository.getById(id);
-
-        if (teamLead == null){
-
-            throw new NotFoundException("Invalid id address", currentPath);
-        }
-
-        return teamLead;
-
-    }
-
-    private Employee getUserByEmail(String email, String error, String currentPath){
-
-        final Employee user = userRepository.getByEmail(email);
-
-        if (user == null){
-
-            throw  new NotFoundException(error, currentPath );
-        }
-
-        return user;
-    }
 }

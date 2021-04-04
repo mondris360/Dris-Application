@@ -189,7 +189,6 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     }
 
 
-
     private  SubDepartment findSubDepartmentById(long id, String currentPath){
 
         final SubDepartment subDepartment = subDepartmentRepository.getById(id);
