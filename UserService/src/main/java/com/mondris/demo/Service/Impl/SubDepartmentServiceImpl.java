@@ -8,14 +8,13 @@ import com.mondris.demo.Model.Employee;
 import com.mondris.demo.Model.SubDepartment;
 import com.mondris.demo.Repository.DepartmentRepository;
 import com.mondris.demo.Repository.SubDepartmentRepository;
-import com.mondris.demo.Repository.UserRepository;
 import com.mondris.demo.Service.SubDepartmentService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
+import com.mondris.demo.Util.Helper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,13 +25,13 @@ import java.util.List;
 public class SubDepartmentServiceImpl implements SubDepartmentService {
 
     @Resource
+    private Helper helper;
+
+    @Resource
     private DepartmentRepository departmentRepository;
 
     @Resource
     private SubDepartmentRepository subDepartmentRepository;
-
-    @Resource
-    private UserRepository userRepository;
 
     private final String currentPath = "/subDepartment";
 
@@ -106,12 +105,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         String currentPath = "/getAllSubDeptsCreatedByAUser/{email}";
 
-        final Employee user = userRepository.getByEmail(userEmail);
-
-        if (user == null){
-
-            throw new NotFoundException("Invalid User Email Address", currentPath);
-        }
+        final Employee user = helper.getEmployeeByEmail(userEmail, "Invalid User Email", currentPath);
 
         final List<SubDepartment> subDepartmentsCreatedByAUser = subDepartmentRepository.getAllByCreatedByUser(user);
 
@@ -137,12 +131,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
     private ApiResponse commonOperations(SubDeptCommonOperationsDto request){
 
-        final Employee employee = userRepository.getByEmail(request.getUserEmail());
-
-        if(employee ==  null){
-
-            throw new NotFoundException("Invalid user email address", currentPath);
-        }
+        final Employee employee = helper.getEmployeeByEmail(request.getUserEmail(), "Invalid User Email", currentPath);
 
         final Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
 
