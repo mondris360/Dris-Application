@@ -11,8 +11,8 @@ import com.mondris.demo.Service.TeamLeadService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
+import com.mondris.demo.Util.Helper;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,6 +29,9 @@ public class TeamLeadServiceImpl implements TeamLeadService {
 
     @Resource
     private SubDepartmentRepository subDepartmentRepository;
+
+    @Resource
+    private Helper helper;
 
     private  String currentPath = "/teamLead";
 
@@ -49,7 +52,7 @@ public class TeamLeadServiceImpl implements TeamLeadService {
             throw new IllegalArgumentException("Sorry, this sub Department already has a team lead", currentPath);
         }
 
-        final Employee employee = getUserByEmail(request.getEmail(), "Invalid User Email Address", currentPath);
+        final Employee employee = helper.getEmployeeByEmail(request.getEmail(),"Invalid User Email Address",  currentPath);
 
         final TeamLead teamLead = teamLeadRepository.getByEmployee(employee);
 
@@ -58,8 +61,8 @@ public class TeamLeadServiceImpl implements TeamLeadService {
             throw new IllegalArgumentException("A TeamLead with this email address already exist", currentPath);
         }
 
-        final Employee createdByUser = getUserByEmail(request.getCreatedByUserEmail(), "Invalid CreatedByUserEmail",
-                currentPath);
+        final Employee createdByUser = helper.getEmployeeByEmail(request.getCreatedByUserEmail(),
+                "Invalid Created By Email Address",currentPath);
 
         TeamLead newTeamLead =  new TeamLead();
         newTeamLead.setEmployee(employee);
