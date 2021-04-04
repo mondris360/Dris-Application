@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +21,7 @@ public class TeamLeadReqDto {
     @Email
     private String createdByUserEmail;
 
-    @NotBlank(message = "invalid sub department id")
+    @NotNull(message = "invalid sub department id")
     @Positive
     private Long subDepartmentId;
 
