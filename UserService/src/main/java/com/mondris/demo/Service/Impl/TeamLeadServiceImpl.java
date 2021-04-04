@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @Service
@@ -66,9 +67,11 @@ public class TeamLeadServiceImpl implements TeamLeadService {
 
         final TeamLead createdTeamLead = teamLeadRepository.save(newTeamLead);
 
-        return  new ApiResponse("Successful", HttpStatus.OK, "Team Lead Was Successfully Created", createdTeamLead);
+        return  new ApiResponse("Successful", HttpStatus.CREATED, "Team Lead Was Successfully Created", createdTeamLead);
 
     }
+
+
 
     @Override
     public ApiResponse getTeamLeadById(long id) {
@@ -82,9 +85,13 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     }
 
 
+
     @Override
     public ApiResponse getAllTeamLeads() {
-        return null;
+
+        final List<TeamLead> allTeamLeads = teamLeadRepository.findAll();
+
+        return new ApiResponse("Successful", HttpStatus.OK, "List of all Team Leads", allTeamLeads);
     }
 
 

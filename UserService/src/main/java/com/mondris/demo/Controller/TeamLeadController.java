@@ -23,11 +23,20 @@ public class TeamLeadController {
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
-    @GetMapping("teamLead/{id}")
+    @GetMapping("/teamLead/{id}")
     public ResponseEntity<ApiResponse> getTeamLeadById(@PathVariable long id){
 
         final ApiResponse apiResponse = teamLeadService.getTeamLeadById(id);
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
+    @GetMapping("/teamLead")
+    public ResponseEntity<ApiResponse> getTeamLeads(){
+
+        final ApiResponse apiResponse = teamLeadService.getAllTeamLeads();
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+
     }
 }
