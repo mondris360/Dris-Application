@@ -48,7 +48,7 @@ public class TeamLeadServiceImpl implements TeamLeadService {
 
         if (teamLead != null){
 
-            throw new IllegalArgumentException("A TeamLead with that email address already exist", currentPath);
+            throw new IllegalArgumentException("A TeamLead with this email address already exist", currentPath);
         }
 
         final Employee createdByUser = getUserByEmail(request.getCreatedByUserEmail(), "Invalid CreatedByUserEmail",

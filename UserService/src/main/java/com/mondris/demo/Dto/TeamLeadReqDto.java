@@ -20,7 +20,6 @@ public class TeamLeadReqDto {
     @Email
     private String email;
 
-
     @NotBlank(message = "createdByUserEmail is mandatory")
     @Email
     private String createdByUserEmail;
