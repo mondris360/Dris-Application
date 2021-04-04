@@ -52,7 +52,7 @@ public class TeamLeadServiceImpl implements TeamLeadService {
 
         if (teamLead != null){
 
-            throw new IllegalArgumentException("A TeamLead with this email address already exist", currentPath);
+            throw new IllegalArgumentException("Sorry, this team  lead is already assigned to a sub department", currentPath);
         }
 
         final Employee createdByUser = helper.getEmployeeByEmail(request.getCreatedByUserEmail(),
@@ -69,5 +69,23 @@ public class TeamLeadServiceImpl implements TeamLeadService {
         return  new ApiResponse("Successful", HttpStatus.OK, "Team Lead Was Successfully Created", createdTeamLead);
 
     }
+
+    @Override
+    public ApiResponse getTeamLeadById(long id) {
+
+        String currentPath2 =  currentPath + "/{id}";
+
+        final TeamLead teamLead = helper.getTeamLeadById(id, currentPath2);
+
+        return new ApiResponse("Successful", HttpStatus.OK, "Team Lead Details", teamLead);
+
+    }
+
+
+    @Override
+    public ApiResponse getAllTeamLeads() {
+        return null;
+    }
+
 
 }
