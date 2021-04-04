@@ -20,6 +20,7 @@ public class TeamLeadController {
     @PostMapping("/teamLead")
     public ResponseEntity<ApiResponse> createTeamLead(@Valid @RequestBody TeamLeadReqDto request){
 
+        System.out.println("==============================" +  request);
         final ApiResponse apiResponse = teamLeadService.createTeamLead(request);
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());

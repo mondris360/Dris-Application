@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Table(name="team_lead")
 @Getter
@@ -14,7 +15,7 @@ import javax.persistence.*;
 public class TeamLead extends BaseModel {
 
     @OneToOne
-    @JoinColumn(name="employee_id_fkey")
+    @JoinColumn(name="team_lead_email_fkey")
     private Employee employee;
 
     @OneToOne(fetch = FetchType.LAZY)

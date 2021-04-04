@@ -1,9 +1,6 @@
 package com.mondris.demo.Dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.*;
 
@@ -11,6 +8,7 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class TeamLeadReqDto {
 
     @NotBlank(message = "Email is mandatory")
@@ -22,7 +20,7 @@ public class TeamLeadReqDto {
     private String createdByUserEmail;
 
     @NotNull(message = "invalid sub department id")
-    @Positive
+    @Positive (message = "sub Department id must be  an integer greater than zero")
     private Long subDepartmentId;
 
     @Size(max=2000, message = "note must be lesser than or equal to 2000 characters")

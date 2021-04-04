@@ -42,6 +42,13 @@ public class TeamLeadServiceImpl implements TeamLeadService {
             throw  new NotFoundException("Invalid Sub Department Id", currentPath);
         }
 
+        final TeamLead teamLeadBySubDepartment = teamLeadRepository.getBySubDepartment(subDepartment);
+
+        if ( teamLeadBySubDepartment != null){
+
+            throw new IllegalArgumentException("Sorry, this sub Department already has a team lead", currentPath);
+        }
+
         final Employee employee = getUserByEmail(request.getEmail(), "Invalid User Email Address", currentPath);
 
         final TeamLead teamLead = teamLeadRepository.getByEmployee(employee);
