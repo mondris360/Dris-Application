@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 @Service
@@ -47,6 +48,15 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     }
 
+
+    @Override
+    public ApiResponse getDepartmentId(@Positive(message = "Id must be a positive number") long id) {
+
+        final Department department = departmentRepository.findDepartmentById(id).orElseThrow(
+                () -> new NotFoundException("Invalid Department Id", currentPath + "/{departmentId}"));
+
+        return new ApiResponse("Successful", HttpStatus.OK, "Department Details", department);
+    }
 
     @Override
     public ApiResponse getAllDepartments() {
