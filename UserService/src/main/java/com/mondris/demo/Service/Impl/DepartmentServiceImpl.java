@@ -10,7 +10,6 @@ import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentExcep
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,19 +23,19 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Resource
     private DepartmentHeadRespository departmentHeadRespository;
 
-    private  String currentPath =  "/department";
+    private final String currentPath =  "/department";
 
     @Override
     public ApiResponse createDepartment(DepartmentReqDto request) {
 
         final String departmentName = request.getName().toLowerCase().trim();
+
         final Department department = departmentRepository.findDepartmentByName(departmentName);
 
         if (department != null){
+
             throw new IllegalArgumentException("Department name already exists", currentPath);
         }
-
-
 
         Department newDepartment =  new Department();
         newDepartment.setName(departmentName);
@@ -61,12 +60,9 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public ApiResponse updateDepartmentDetails(UpdateDepartmentReqDto request) {
 
-        final Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
+        final Department department = departmentRepository.findDepartmentById(request.getDepartmentId()).orElseThrow(
+                ()-> new NotFoundException("Invalid Department Id", currentPath));
 
-        if (department ==  null){
-
-            throw new NotFoundException("Invalid Department Id", currentPath);
-        }
 
         department.setName(request.getName().trim().toLowerCase());
         department.setNote(request.getNote());
