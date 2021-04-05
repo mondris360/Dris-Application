@@ -9,4 +9,5 @@ public interface TeamLeadService {
     ApiResponse createTeamLead(TeamLeadReqDto request);
     ApiResponse getTeamLeadById(long id);
     ApiResponse getAllTeamLeads();
+    ApiResponse deleteTeamLeadById(long id);
 }

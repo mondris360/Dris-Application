@@ -12,6 +12,7 @@ import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentExcep
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
+import com.mondris.demo.Util.Helper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,9 @@ public class TeamLeadServiceImpl implements TeamLeadService {
 
     @Resource
     private SubDepartmentRepository subDepartmentRepository;
+
+    @Resource
+    private Helper helper;
 
 
     private final String currentPath = "/teamLead";
@@ -94,4 +98,17 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     }
 
 
+    @Override
+    public ApiResponse deleteTeamLeadById(long id) {
+
+        helper.isPositiveNumber(id, currentPath);
+
+        final TeamLead teamLead = teamLeadRepository.getById(id).orElseThrow(
+                () -> new NotFoundException("invalid team lead id", currentPath));
+
+        teamLeadRepository.delete(teamLead);
+
+        return  new ApiResponse("Successful", HttpStatus.OK,"Team Lead was deleted successfully");
+
+    }
 }

@@ -39,4 +39,14 @@ public class TeamLeadController {
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
 
     }
+
+    @DeleteMapping("/teamLead/{id}")
+    public ResponseEntity<ApiResponse> deleteTeamLeadById(@PathVariable long id){
+
+        final ApiResponse apiResponse = teamLeadService.deleteTeamLeadById(id);
+
+        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+
+    }
+
 }

@@ -55,11 +55,9 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
                 ()-> new UserNotFoundException("Invalid User Email Address", currentPath) );
 
 
-        Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
+        Department department = departmentRepository.findDepartmentById(request.getDepartmentId()).orElseThrow(
+                () -> new NotFoundException("Invalid Department Id", currentPath ));
 
-        if ( department == null){
-            throw  new NotFoundException("Invalid Department Id", currentPath );
-        }
 
         DepartmentHead newDepartmentHead =  new DepartmentHead();
         newDepartmentHead.setEnabled(true);
