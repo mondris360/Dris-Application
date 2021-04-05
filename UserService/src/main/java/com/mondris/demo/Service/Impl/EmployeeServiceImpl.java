@@ -101,11 +101,6 @@ public class EmployeeServiceImpl implements EmployeeService {
             phoneContactRepository.save(phoneContact2);
         }
 
-
-//        UserSignUpResponseDto userSignUpResponseDto =  modelMapper.map(user, UserSignUpResponseDto.class);
-////        apiResponse =  new ApiResponse("Created",HttpStatus.OK, "User Was Created", userSignUpResponseDto);
-//
-////        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
         log.info("User additional Info was stored in the user-service");
     }
 

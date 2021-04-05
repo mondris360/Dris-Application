@@ -27,9 +27,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     private  String currentPath =  "/department";
 
     @Override
-    public ResponseEntity<ApiResponse> createDepartment(DepartmentReqDto request) {
-
-        ApiResponse apiResponse;
+    public ApiResponse createDepartment(DepartmentReqDto request) {
 
         final String departmentName = request.getName().toLowerCase().trim();
         final Department department = departmentRepository.findDepartmentByName(departmentName);
@@ -46,30 +44,22 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         final Department createdDepartment = departmentRepository.save(newDepartment);
 
-        apiResponse =  new ApiResponse("Successful", HttpStatus.CREATED, "Department Was Created Successfully",createdDepartment);
+        return new ApiResponse("Successful", HttpStatus.CREATED, "Department Was Created Successfully",createdDepartment);
 
-        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
 
     @Override
-    public ResponseEntity<ApiResponse> getAllDepartments() {
-        ApiResponse apiResponse;
+    public ApiResponse getAllDepartments() {
 
         final List<Department> allDepartments= departmentRepository.findAll();
 
-        apiResponse = new ApiResponse("Successful", HttpStatus.OK," List of All The Departments", allDepartments);
-
-        return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+       return new ApiResponse("Successful", HttpStatus.OK," List of All The Departments", allDepartments);
     }
 
 
     @Override
-    public ResponseEntity<ApiResponse> updateDepartmentDetails(UpdateDepartmentReqDto request) {
-
-        ApiResponse apiResponse;
-
-        String currentPath = "";
+    public ApiResponse updateDepartmentDetails(UpdateDepartmentReqDto request) {
 
         final Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
 
@@ -83,17 +73,13 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         final Department updatedDepartment = departmentRepository.save(department);
 
-        apiResponse =  new ApiResponse("Successful", HttpStatus.OK, "Department Was Successfully Updated", updatedDepartment);
-
-        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+        return new ApiResponse("Successful", HttpStatus.OK, "Department Was Successfully Updated", updatedDepartment);
 
     }
 
 
     @Override
-    public ResponseEntity<ApiResponse> deleteDepartmentById(long departmentId) {
-
-        ApiResponse apiResponse;
+    public ApiResponse deleteDepartmentById(long departmentId) {
 
         boolean isValidId = departmentRepository.existsById(departmentId);
 
@@ -104,8 +90,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         departmentRepository.deleteById(departmentId);
 
-        apiResponse = new ApiResponse("Successful", HttpStatus.OK, "Department Was Deleted Successfully");
-
-        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+        return new ApiResponse("Successful", HttpStatus.OK, "Department Was Deleted Successfully");
     }
 }

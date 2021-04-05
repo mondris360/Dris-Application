@@ -35,7 +35,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
     @Resource
     private DepartmentRepository departmentRepository;
 
-    private String currentPath = "/departmentHead";
+    private final String currentPath = "/departmentHead";
 
     @Override
     public ResponseEntity<ApiResponse> createDepartmentHead(DepartmentHeadReqDto request) {
