@@ -51,12 +51,9 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
             throw  new IllegalArgumentException("A Department Head With That Email Already Exist", currentPath);
         }
 
-        Employee employee = employeeRepository.getByEmail(departmentHeadEmail);
+        Employee employee = employeeRepository.getByEmail(departmentHeadEmail).orElseThrow(
+                ()-> new UserNotFoundException("Invalid User Email Address", currentPath) );
 
-        if (employee == null){
-
-            throw new UserNotFoundException("Invalid User Email Address", currentPath);
-        }
 
         Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
 
@@ -156,12 +153,10 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         }
 
 
-        final Employee employee = employeeRepository.getByEmail(newDepartmentHeadEmail);
+        final Employee employee = employeeRepository.getByEmail(newDepartmentHeadEmail).orElseThrow(
 
-        if (employee == null){
+                () -> new NotFoundException("Invalid department head email address", currentPath));
 
-            throw new NotFoundException("Invalid department head email address", currentPath);
-        }
 
         final DepartmentHead userIsAlreadyADeptHead = departmentHeadRespository.
                 getDepartmentHeadByEmployee_EmailAndEnabledIsTrue(newDepartmentHeadEmail);

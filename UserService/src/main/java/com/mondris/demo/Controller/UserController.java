@@ -1,7 +1,7 @@
 package com.mondris.demo.Controller;
 
 import com.mondris.demo.Dto.UserSignUpReqDto;
-import com.mondris.demo.Service.UserService;
+import com.mondris.demo.Service.EmployeeService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 public class UserController {
 
     @Resource
-    private UserService userService;
+    private EmployeeService userService;
 
     @PostMapping("/completeSignUp")
     @RabbitListener(queues = "UserSignUpQueue")

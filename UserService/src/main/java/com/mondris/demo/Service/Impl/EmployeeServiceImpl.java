@@ -3,7 +3,7 @@ package com.mondris.demo.Service.Impl;
 import com.mondris.demo.Dto.UserSignUpReqDto;
 import com.mondris.demo.Model.*;
 import com.mondris.demo.Repository.*;
-import com.mondris.demo.Service.UserService;
+import com.mondris.demo.Service.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 
 @Service
 @Slf4j
-public class UserServiceImpl implements UserService {
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Resource
     private EmployeeRepository employeeRepository;
@@ -53,9 +53,9 @@ public class UserServiceImpl implements UserService {
 
         request.setEmail(request.getEmail().toLowerCase().trim());
 
-        Employee userExists =  employeeRepository.getByEmail(request.getEmail());
+        boolean userExists =  employeeRepository.getByEmail(request.getEmail()).isPresent();
 
-        if(userExists != null){ // this is very unlikely since i have  already checked for it in the auth-service  sign up method
+        if(userExists){ // this is very unlikely since i have  already checked for it in the auth-service  sign up method
           log.info("User already exists");
           return;
         }

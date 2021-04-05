@@ -12,8 +12,8 @@ import com.mondris.demo.Repository.SubDepartmentRepository;
 import com.mondris.demo.Service.SubDepartmentService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
-import com.mondris.demo.Util.Helper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -24,8 +24,6 @@ import java.util.List;
 @Service
 @Slf4j
 public class SubDepartmentServiceImpl implements SubDepartmentService {
-
-
 
     @Resource
     private DepartmentRepository departmentRepository;
@@ -91,6 +89,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
     }
 
+
     @Override
     public ApiResponse getAllSubDepartmentsByDeptId(long id) {
 
@@ -107,7 +106,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
         String currentPath = "/getAllSubDeptsCreatedByAUser/{email}";
 
         final Employee employee = employeeRepository.getByEmail(userEmail).orElseThrow(
-                () -> new NotFoundException("Invalid User Email", currentPath));
+                () -> new UserNotFoundException("Invalid User Email", currentPath));
 
 
         final List<SubDepartment> subDepartmentsCreatedByAUser = subDepartmentRepository.getAllByCreatedByUser(employee);
@@ -132,7 +131,7 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     private ApiResponse commonOperations(SubDeptCommonOperationsDto request){
 
         final Employee employee = employeeRepository.getByEmail(request.getUserEmail()).orElseThrow(
-                () -> new NotFoundException("Invalid User Email", currentPath));
+                () -> new UserNotFoundException("Invalid User Email", currentPath));
 
         final Department department = departmentRepository.findById(request.getDepartmentId()).orElseThrow(
                 () ->  new NotFoundException("Invalid Department Id", currentPath));

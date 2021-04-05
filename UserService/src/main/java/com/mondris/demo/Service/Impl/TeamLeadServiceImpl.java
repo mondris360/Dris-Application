@@ -11,7 +11,6 @@ import com.mondris.demo.Service.TeamLeadService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
-import com.mondris.demo.Util.Helper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -31,10 +30,8 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     @Resource
     private SubDepartmentRepository subDepartmentRepository;
 
-    @Resource
-    private Helper helper;
 
-    private  String currentPath = "/teamLead";
+    private final String currentPath = "/teamLead";
 
     @Override
     public ApiResponse createTeamLead(TeamLeadReqDto request) {
@@ -49,7 +46,8 @@ public class TeamLeadServiceImpl implements TeamLeadService {
             throw new IllegalArgumentException("Sorry, this sub Department already has a team lead", currentPath);
         }
 
-        final Employee employee = helper.getEmployeeByEmail(request.getEmail(),"Invalid User Email Address",  currentPath);
+        final Employee employee = employeeRepository.getByEmail(request.getEmail()).orElseThrow(
+                () -> new NotFoundException("Invalid User Email Address",  currentPath));
 
         final TeamLead teamLead = teamLeadRepository.getByEmployee(employee);
 
@@ -58,8 +56,8 @@ public class TeamLeadServiceImpl implements TeamLeadService {
             throw new IllegalArgumentException("Sorry, this team  lead is already assigned to a sub department", currentPath);
         }
 
-        final Employee createdByUser = helper.getEmployeeByEmail(request.getCreatedByUserEmail(),
-                "Invalid Created By Email Address",currentPath);
+        final Employee createdByUser = employeeRepository.getByEmail(request.getEmail()).orElseThrow(
+                () -> new NotFoundException("Invalid Created By Email Address",  currentPath));
 
         TeamLead newTeamLead =  new TeamLead();
         newTeamLead.setEmployee(employee);
@@ -78,9 +76,7 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     @Override
     public ApiResponse getTeamLeadById(long id) {
 
-        String currentPath2 =  currentPath + "/{id}";
-
-        final TeamLead teamLead = teamLeadRepository.getById(id).orElseThrow(() -> new NotFoundException("Invalid id", currentPath2));
+        final TeamLead teamLead = teamLeadRepository.getById(id).orElseThrow(() -> new NotFoundException("Invalid id", currentPath + "/{id}"));
 
         return new ApiResponse("Successful", HttpStatus.OK, "Team Lead Details", teamLead);
 
