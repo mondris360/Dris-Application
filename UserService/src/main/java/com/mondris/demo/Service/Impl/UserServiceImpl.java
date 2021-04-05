@@ -1,17 +1,11 @@
 package com.mondris.demo.Service.Impl;
 
-import com.mondris.demo.Dto.AuthorityReqDto;
 import com.mondris.demo.Dto.UserSignUpReqDto;
-import com.mondris.demo.Dto.UserSignUpResponseDto;
 import com.mondris.demo.Model.*;
 import com.mondris.demo.Repository.*;
 import com.mondris.demo.Service.UserService;
-import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
-import com.mondris.demo.Util.Api.Response.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,7 +15,7 @@ import javax.annotation.Resource;
 public class UserServiceImpl implements UserService {
 
     @Resource
-    private UserRepository userRepository;
+    private EmployeeRepository employeeRepository;
 
     @Resource
     private AddressRepository addressRepository;
@@ -59,7 +53,7 @@ public class UserServiceImpl implements UserService {
 
         request.setEmail(request.getEmail().toLowerCase().trim());
 
-        Employee userExists =  userRepository.getByEmail(request.getEmail());
+        Employee userExists =  employeeRepository.getByEmail(request.getEmail());
 
         if(userExists != null){ // this is very unlikely since i have  already checked for it in the auth-service  sign up method
           log.info("User already exists");
@@ -67,7 +61,7 @@ public class UserServiceImpl implements UserService {
         }
 
         Employee newUser =  modelMapper.map(request, Employee.class);
-        final Employee user = userRepository.save(newUser);
+        final Employee user = employeeRepository.save(newUser);
 
         // create country if it does not exist
         String countryName =  request.getCountry().toLowerCase().trim();

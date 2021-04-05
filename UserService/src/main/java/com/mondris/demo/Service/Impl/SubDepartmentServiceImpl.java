@@ -7,6 +7,7 @@ import com.mondris.demo.Model.Department;
 import com.mondris.demo.Model.Employee;
 import com.mondris.demo.Model.SubDepartment;
 import com.mondris.demo.Repository.DepartmentRepository;
+import com.mondris.demo.Repository.EmployeeRepository;
 import com.mondris.demo.Repository.SubDepartmentRepository;
 import com.mondris.demo.Service.SubDepartmentService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
@@ -24,14 +25,16 @@ import java.util.List;
 @Slf4j
 public class SubDepartmentServiceImpl implements SubDepartmentService {
 
-    @Resource
-    private Helper helper;
+
 
     @Resource
     private DepartmentRepository departmentRepository;
 
     @Resource
     private SubDepartmentRepository subDepartmentRepository;
+
+    @Resource
+    private EmployeeRepository employeeRepository;
 
     private final String currentPath = "/subDepartment";
 
@@ -71,10 +74,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     @Override
     public ApiResponse getSubDepartmentById(long id) {
 
-        String currentPath2 =  currentPath + "/id";
-
-        final SubDepartment subDepartment = findSubDepartmentById(id, currentPath2);
-
+        final SubDepartment subDepartment = subDepartmentRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Invalid sub department id", currentPath + "/id"));
 
         return  new ApiResponse("Successful", HttpStatus.OK, "Sub Department Details", subDepartment);
 
@@ -105,9 +106,11 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         String currentPath = "/getAllSubDeptsCreatedByAUser/{email}";
 
-        final Employee user = helper.getEmployeeByEmail(userEmail, "Invalid User Email", currentPath);
+        final Employee employee = employeeRepository.getByEmail(userEmail).orElseThrow(
+                () -> new NotFoundException("Invalid User Email", currentPath));
 
-        final List<SubDepartment> subDepartmentsCreatedByAUser = subDepartmentRepository.getAllByCreatedByUser(user);
+
+        final List<SubDepartment> subDepartmentsCreatedByAUser = subDepartmentRepository.getAllByCreatedByUser(employee);
 
         return new ApiResponse("Successful", HttpStatus.OK, "All Sub Departments Created By A User", subDepartmentsCreatedByAUser);
     }
@@ -115,7 +118,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
     @Override
     public ApiResponse deleteSubDepartmentById(long id) {
 
-        final SubDepartment subDepartment = findSubDepartmentById(id, currentPath);
+        final SubDepartment subDepartment = subDepartmentRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Invalid sub department id", currentPath));
 
         subDepartmentRepository.delete(subDepartment);
 
@@ -125,20 +129,13 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
 
 
-
-
-
-
     private ApiResponse commonOperations(SubDeptCommonOperationsDto request){
 
-        final Employee employee = helper.getEmployeeByEmail(request.getUserEmail(), "Invalid User Email", currentPath);
+        final Employee employee = employeeRepository.getByEmail(request.getUserEmail()).orElseThrow(
+                () -> new NotFoundException("Invalid User Email", currentPath));
 
-        final Department department = departmentRepository.findDepartmentById(request.getDepartmentId());
-
-        if (department == null){
-
-            throw new NotFoundException("Invalid Department Id", currentPath);
-        }
+        final Department department = departmentRepository.findById(request.getDepartmentId()).orElseThrow(
+                () ->  new NotFoundException("Invalid Department Id", currentPath));
 
         String subDepartmentName = request.getSubDepartmentName().trim().toLowerCase();
 
@@ -168,7 +165,8 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
 
         } else {  // update already existing subDepartment
 
-            final SubDepartment subDepartmentById = findSubDepartmentById(request.getSubDepartmentId(), currentPath);
+            final SubDepartment subDepartmentById = subDepartmentRepository.findById(request.getSubDepartmentId()).orElseThrow(
+                    ()-> new NotFoundException("Invalid subDepartment Id", currentPath));
 
             if( subDepartmentByName != null  && (subDepartmentById.getId() != subDepartmentByName.getId())){
 
@@ -187,19 +185,5 @@ public class SubDepartmentServiceImpl implements SubDepartmentService {
         return new ApiResponse("Successful", request.getHttpStatus(), request.getSuccessMsg(), subDepartment);
 
     }
-
-
-    private  SubDepartment findSubDepartmentById(long id, String currentPath){
-
-        final SubDepartment subDepartment = subDepartmentRepository.getById(id);
-
-        if (subDepartment == null){
-
-            throw new NotFoundException("Invalid subDepartment Id", currentPath);
-        }
-
-        return  subDepartment;
-    }
-
 
 }

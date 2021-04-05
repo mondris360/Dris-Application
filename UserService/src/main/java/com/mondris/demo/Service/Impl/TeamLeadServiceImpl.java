@@ -6,7 +6,7 @@ import com.mondris.demo.Model.SubDepartment;
 import com.mondris.demo.Model.TeamLead;
 import com.mondris.demo.Repository.SubDepartmentRepository;
 import com.mondris.demo.Repository.TeamLeadRepository;
-import com.mondris.demo.Repository.UserRepository;
+import com.mondris.demo.Repository.EmployeeRepository;
 import com.mondris.demo.Service.TeamLeadService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
@@ -26,9 +26,10 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     private TeamLeadRepository teamLeadRepository;
 
     @Resource
-    private UserRepository userRepository;
+    private EmployeeRepository employeeRepository;
 
-
+    @Resource
+    private SubDepartmentRepository subDepartmentRepository;
 
     @Resource
     private Helper helper;
@@ -38,7 +39,8 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     @Override
     public ApiResponse createTeamLead(TeamLeadReqDto request) {
 
-        final SubDepartment subDepartment = helper.getSubDepartmentById(request.getSubDepartmentId(), currentPath);
+        final SubDepartment subDepartment = subDepartmentRepository.findById(request.getSubDepartmentId()).orElseThrow(
+                () -> new NotFoundException("Invalid sub department id", currentPath));
 
         final TeamLead teamLeadBySubDepartment = teamLeadRepository.getBySubDepartment(subDepartment);
 
@@ -78,12 +80,11 @@ public class TeamLeadServiceImpl implements TeamLeadService {
 
         String currentPath2 =  currentPath + "/{id}";
 
-        final TeamLead teamLead = helper.getTeamLeadById(id, currentPath2);
+        final TeamLead teamLead = teamLeadRepository.getById(id).orElseThrow(() -> new NotFoundException("Invalid id", currentPath2));
 
         return new ApiResponse("Successful", HttpStatus.OK, "Team Lead Details", teamLead);
 
     }
-
 
 
     @Override

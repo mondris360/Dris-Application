@@ -8,13 +8,12 @@ import com.mondris.demo.Model.DepartmentHead;
 import com.mondris.demo.Model.Employee;
 import com.mondris.demo.Repository.DepartmentHeadRespository;
 import com.mondris.demo.Repository.DepartmentRepository;
-import com.mondris.demo.Repository.UserRepository;
+import com.mondris.demo.Repository.EmployeeRepository;
 import com.mondris.demo.Service.DepartmentHeadService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +30,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
     private DepartmentHeadRespository departmentHeadRespository;
 
     @Resource
-    private UserRepository userRepository;
+    private EmployeeRepository employeeRepository;
 
     @Resource
     private DepartmentRepository departmentRepository;
@@ -52,7 +51,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
             throw  new IllegalArgumentException("A Department Head With That Email Already Exist", currentPath);
         }
 
-        Employee employee = userRepository.getByEmail(departmentHeadEmail);
+        Employee employee = employeeRepository.getByEmail(departmentHeadEmail);
 
         if (employee == null){
 
@@ -157,7 +156,7 @@ public class DepartmentHeadServiceImpl implements DepartmentHeadService {
         }
 
 
-        final Employee employee = userRepository.getByEmail(newDepartmentHeadEmail);
+        final Employee employee = employeeRepository.getByEmail(newDepartmentHeadEmail);
 
         if (employee == null){
 
