@@ -10,6 +10,7 @@ import com.mondris.demo.Repository.EmployeeRepository;
 import com.mondris.demo.Service.TeamLeadService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class TeamLeadServiceImpl implements TeamLeadService {
         }
 
         final Employee employee = employeeRepository.getByEmail(request.getEmail()).orElseThrow(
-                () -> new NotFoundException("Invalid User Email Address",  currentPath));
+                () -> new UserNotFoundException("Invalid User Email Address",  currentPath));
 
         final TeamLead teamLead = teamLeadRepository.getByEmployee(employee);
 
@@ -57,7 +58,7 @@ public class TeamLeadServiceImpl implements TeamLeadService {
         }
 
         final Employee createdByUser = employeeRepository.getByEmail(request.getEmail()).orElseThrow(
-                () -> new NotFoundException("Invalid Created By Email Address",  currentPath));
+                () -> new UserNotFoundException("Invalid Created By Email Address",  currentPath));
 
         TeamLead newTeamLead =  new TeamLead();
         newTeamLead.setEmployee(employee);
@@ -76,7 +77,8 @@ public class TeamLeadServiceImpl implements TeamLeadService {
     @Override
     public ApiResponse getTeamLeadById(long id) {
 
-        final TeamLead teamLead = teamLeadRepository.getById(id).orElseThrow(() -> new NotFoundException("Invalid id", currentPath + "/{id}"));
+        final TeamLead teamLead = teamLeadRepository.getById(id).orElseThrow(
+                () -> new NotFoundException("Invalid id", currentPath + "/{id}"));
 
         return new ApiResponse("Successful", HttpStatus.OK, "Team Lead Details", teamLead);
 

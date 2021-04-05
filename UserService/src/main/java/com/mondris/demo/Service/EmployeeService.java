@@ -8,6 +8,5 @@ import org.springframework.stereotype.Service;
 public interface EmployeeService {
 
     void createUser(UserSignUpReqDto request);
-//    ResponseEntity<ApiResponse> setUserAuthority(AuthorityReqDto request);
 
 }
