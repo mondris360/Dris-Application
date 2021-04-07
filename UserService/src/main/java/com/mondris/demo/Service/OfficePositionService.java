@@ -10,10 +10,12 @@ public interface OfficePositionService {
 
      ApiResponse createOfficePosition(OfficePositionReqDto request);
 
-    ApiResponse getOfficePositionById(Long id);
+    ApiResponse getOfficePositionById(long id);
 
     ApiResponse getAllOfficePositions();
 
     ApiResponse updateOfficePosition(UpdateOfficePositionReqDto request);
+
+    ApiResponse deleteOfficePositionById(long id);
 
 }

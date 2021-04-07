@@ -12,6 +12,7 @@ import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentExcep
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
+import com.mondris.demo.Util.Helper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,11 @@ public class OfficePositionServiceImpl implements OfficePositionService {
     @Resource
     private EmployeeRepository employeeRepository;
 
-    private String currentPath = "/officePosition";
+    @Resource
+    private Helper helper;
+
+    final private String currentPath = "/officePosition";
+
 
     @Override
     public ApiResponse createOfficePosition(OfficePositionReqDto request) {
@@ -55,8 +60,9 @@ public class OfficePositionServiceImpl implements OfficePositionService {
         return new ApiResponse("Successful", HttpStatus.CREATED, "Office Position Was Successfully Created", createdOfficePosition);
     }
 
+
     @Override
-    public ApiResponse getOfficePositionById(Long id) {
+    public ApiResponse getOfficePositionById(long id) {
 
         final OfficePosition officePosition = officePositionRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("Invalid Office Position Id", currentPath+"/{id}"));
@@ -65,6 +71,7 @@ public class OfficePositionServiceImpl implements OfficePositionService {
 
     }
 
+
     @Override
     public ApiResponse getAllOfficePositions() {
 
@@ -72,6 +79,7 @@ public class OfficePositionServiceImpl implements OfficePositionService {
 
         return new ApiResponse("Successful", HttpStatus.OK, "List Of All Office Positions", allOfficePositions);
     }
+
 
     @Override
     public ApiResponse updateOfficePosition(UpdateOfficePositionReqDto request) {
@@ -101,4 +109,19 @@ public class OfficePositionServiceImpl implements OfficePositionService {
 
         return new ApiResponse("Successful", HttpStatus.OK, "Office Position Was Successfully Updated", updatedOfficePosition);
     }
+
+    @Override
+    public ApiResponse deleteOfficePositionById(long id) {
+
+            helper.isPositiveNumber(id, currentPath);
+
+        final OfficePosition officePosition = officePositionRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Invalid Office Id", currentPath));
+
+        officePositionRepository.delete(officePosition);
+
+        return new ApiResponse("Successful",   HttpStatus.OK, "Office Position Was Successfully Deleted");
+
+    }
+
 }

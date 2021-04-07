@@ -10,7 +10,7 @@ public class Helper {
 
       if (number < 1){
 
-          throw  new IllegalArgumentException("Id must be a positive number", currentPath);
+          throw  new IllegalArgumentException("Id must be an Integer Number greater than zero", currentPath);
       }
   }
 

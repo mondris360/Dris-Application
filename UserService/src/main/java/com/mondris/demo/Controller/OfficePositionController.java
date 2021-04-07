@@ -6,10 +6,12 @@ import com.mondris.demo.Service.OfficePositionService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import javax.validation.constraints.Positive;
 
 @RestController
 public class OfficePositionController {
@@ -50,5 +52,12 @@ public class OfficePositionController {
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
+    @DeleteMapping("/officePosition/{id}")
+    ResponseEntity<ApiResponse> deleteOfficePositionById(@PathVariable Long id){
+
+        final ApiResponse apiResponse = officePositionService.deleteOfficePositionById(id);
+
+        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
 
 }
