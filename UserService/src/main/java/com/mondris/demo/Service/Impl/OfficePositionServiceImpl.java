@@ -9,13 +9,15 @@ import com.mondris.demo.Repository.EmployeeRepository;
 import com.mondris.demo.Repository.OfficePositionRepository;
 import com.mondris.demo.Service.OfficePositionService;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.IllegalArgumentException;
+import com.mondris.demo.Util.Api.Exception.CustomErrorClass.NotFoundException;
 import com.mondris.demo.Util.Api.Exception.CustomErrorClass.UserNotFoundException;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Optional;
 
+@Service
 public class OfficePositionServiceImpl implements OfficePositionService {
 
     @Resource
@@ -54,7 +56,12 @@ public class OfficePositionServiceImpl implements OfficePositionService {
 
     @Override
     public ApiResponse getOfficePositionById(Long id) {
-        return null;
+
+        final OfficePosition officePosition = officePositionRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Invalid Office Position Id", currentPath));
+
+        return new ApiResponse("Successful", HttpStatus.OK, "Office Position Details", officePosition);
+
     }
 
     @Override

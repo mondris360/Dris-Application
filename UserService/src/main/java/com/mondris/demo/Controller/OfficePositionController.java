@@ -3,10 +3,9 @@ package com.mondris.demo.Controller;
 import com.mondris.demo.Dto.OfficePositionReqDto;
 import com.mondris.demo.Service.OfficePositionService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
+import lombok.Getter;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -24,5 +23,13 @@ public class OfficePositionController {
         final ApiResponse apiResponse = officePositionService.createOfficePosition(request);
 
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
+    @GetMapping("/officePosition/{id}")
+    ResponseEntity<ApiResponse> getOfficePositionById(@PathVariable long id){
+
+        final ApiResponse apiResponse = officePositionService.getOfficePositionById(id);
+
+        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 }

@@ -1,5 +1,6 @@
 package com.mondris.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mondris.demo.Model.BaseModel.BaseModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class OfficePosition extends BaseModel {
 
     @OneToMany(mappedBy = "officePosition")
     @Column(name = "emp_employment_history")
+    @JsonIgnore
     private Set<EmpEmploymentHistory> empEmploymentHistory;
 
 }
