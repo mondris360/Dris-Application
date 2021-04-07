@@ -1,6 +1,7 @@
 package com.mondris.demo.Service;
 
 import com.mondris.demo.Dto.TeamLeadReqDto;
+import com.mondris.demo.Dto.UpdateTeamLeadReqDto;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import org.springframework.stereotype.Service;
 
@@ -10,4 +11,5 @@ public interface TeamLeadService {
     ApiResponse getTeamLeadById(long id);
     ApiResponse getAllTeamLeads();
     ApiResponse deleteTeamLeadById(long id);
+    ApiResponse updateTeamLead(UpdateTeamLeadReqDto request);
 }
