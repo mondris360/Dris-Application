@@ -1,6 +1,7 @@
 package com.mondris.demo.Controller;
 
 import com.mondris.demo.Dto.OfficePositionReqDto;
+import com.mondris.demo.Dto.UpdateOfficePositionReqDto;
 import com.mondris.demo.Service.OfficePositionService;
 import com.mondris.demo.Util.Api.Response.ApiResponse;
 import lombok.Getter;
@@ -37,6 +38,14 @@ public class OfficePositionController {
     ResponseEntity<ApiResponse> getOfficePositionById(@PathVariable long id){
 
         final ApiResponse apiResponse = officePositionService.getOfficePositionById(id);
+
+        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
+    @PutMapping("/officePosition")
+    ResponseEntity<ApiResponse> updateOfficePosition(@Valid @RequestBody UpdateOfficePositionReqDto request){
+
+        final ApiResponse apiResponse = officePositionService.updateOfficePosition(request);
 
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }

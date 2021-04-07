@@ -59,7 +59,7 @@ public class OfficePositionServiceImpl implements OfficePositionService {
     public ApiResponse getOfficePositionById(Long id) {
 
         final OfficePosition officePosition = officePositionRepository.findById(id).orElseThrow(
-                () -> new NotFoundException("Invalid Office Position Id", currentPath));
+                () -> new NotFoundException("Invalid Office Position Id", currentPath+"/{id}"));
 
         return new ApiResponse("Successful", HttpStatus.OK, "Office Position Details", officePosition);
 
@@ -75,6 +75,30 @@ public class OfficePositionServiceImpl implements OfficePositionService {
 
     @Override
     public ApiResponse updateOfficePosition(UpdateOfficePositionReqDto request) {
-        return null;
+
+        final OfficePosition officePositionById = officePositionRepository.findById(request.getId()).orElseThrow(
+                () -> new NotFoundException("Invalid office position id", currentPath));
+
+        String updatedByUserEmail = request.getUpdatedByUserEmail().toLowerCase().trim();
+
+        final Employee updatedByUser = employeeRepository.getByEmail(updatedByUserEmail).orElseThrow(
+                () -> new UserNotFoundException("Invalid updatedByUserEmail", currentPath));
+
+        String officePositionName =  request.getName().trim().toLowerCase();
+
+        final OfficePosition officePositionByName = officePositionRepository.getByName(officePositionName);
+
+        if (officePositionByName != null && officePositionById.getId() != officePositionByName.getId()){
+
+            throw new IllegalArgumentException("Sorry, An Office Position With This Name Already Exist", currentPath);
+
+        }
+        officePositionById.setName(officePositionName);
+        officePositionById.setNote(request.getNote());
+        officePositionById.setUpdatedByUser(updatedByUser);
+
+        final OfficePosition updatedOfficePosition = officePositionRepository.save(officePositionById);
+
+        return new ApiResponse("Successful", HttpStatus.OK, "Office Position Was Successfully Updated", updatedOfficePosition);
     }
 }
