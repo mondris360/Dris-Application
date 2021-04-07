@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class OfficePositionServiceImpl implements OfficePositionService {
@@ -62,6 +63,14 @@ public class OfficePositionServiceImpl implements OfficePositionService {
 
         return new ApiResponse("Successful", HttpStatus.OK, "Office Position Details", officePosition);
 
+    }
+
+    @Override
+    public ApiResponse getAllOfficePositions() {
+
+        final List<OfficePosition> allOfficePositions = officePositionRepository.findAllByOrderByNameAsc();
+
+        return new ApiResponse("Successful", HttpStatus.OK, "List Of All Office Positions", allOfficePositions);
     }
 
     @Override

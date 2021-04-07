@@ -25,6 +25,14 @@ public class OfficePositionController {
         return new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
 
+    @GetMapping("/officePosition")
+    ResponseEntity<ApiResponse> getALlOfficePositions(){
+
+        final ApiResponse apiResponse = officePositionService.getAllOfficePositions();
+
+        return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
+    }
+
     @GetMapping("/officePosition/{id}")
     ResponseEntity<ApiResponse> getOfficePositionById(@PathVariable long id){
 
@@ -32,4 +40,6 @@ public class OfficePositionController {
 
         return  new ResponseEntity<>(apiResponse, apiResponse.getHttpStatus());
     }
+
+
 }

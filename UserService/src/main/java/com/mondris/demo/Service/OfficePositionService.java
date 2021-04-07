@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public interface OfficePositionService {
 
-    ApiResponse createOfficePosition(OfficePositionReqDto request);
+     ApiResponse createOfficePosition(OfficePositionReqDto request);
 
     ApiResponse getOfficePositionById(Long id);
+
+    ApiResponse getAllOfficePositions();
 
     ApiResponse updateOfficePosition(UpdateOfficePositionReqDto request);
 
