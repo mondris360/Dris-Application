@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f768f2c-5ffe-4f59-8b78-dc0a4139b950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UpdateTeamLeadReqDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/OfficePositionReqDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Dto/UpdateOfficePositionReqDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/OfficePositionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/Service-Registry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/Service-Registry.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/.idea/workspace.xml" afterDir="false" />
@@ -28,11 +30,6 @@
       <change beforePath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Service-Registry/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SystemAndDatabaseDesign/Database-Design.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SystemAndDatabaseDesign/Database-Design.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/TeamLeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Controller/TeamLeadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/TeamLeadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/Impl/TeamLeadServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/TeamLeadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mondris/demo/Service/TeamLeadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Controller/TeamLeadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Controller/TeamLeadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mondris/demo/Service/Impl/TeamLeadServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mondris/demo/Service/Impl/TeamLeadServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dris.auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../dris.auth-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +133,7 @@
       <workItem from="1617554677503" duration="13816000" />
       <workItem from="1617643135666" duration="338000" />
       <workItem from="1617644853180" duration="9967000" />
-      <workItem from="1617809426859" duration="4381000" />
+      <workItem from="1617809426859" duration="5831000" />
     </task>
     <servers />
   </component>
@@ -180,38 +177,38 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="774" y="300" width="424" height="520" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1617295630503" />
-    <state width="1802" height="385" key="GridCell.Tab.0.bottom" timestamp="1617813092144">
+    <state width="1802" height="504" key="GridCell.Tab.0.bottom" timestamp="1617814267636">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="385" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1617813092144" />
-    <state width="1802" height="385" key="GridCell.Tab.0.center" timestamp="1617813092136">
+    <state width="1802" height="504" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1617814267636" />
+    <state width="1802" height="504" key="GridCell.Tab.0.center" timestamp="1617814267634">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="385" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1617813092136" />
-    <state width="1802" height="385" key="GridCell.Tab.0.left" timestamp="1617813092135">
+    <state width="1802" height="504" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1617814267634" />
+    <state width="1802" height="504" key="GridCell.Tab.0.left" timestamp="1617814267634">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="385" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1617813092135" />
-    <state width="1802" height="385" key="GridCell.Tab.0.right" timestamp="1617813092136">
+    <state width="1802" height="504" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1617814267634" />
+    <state width="1802" height="504" key="GridCell.Tab.0.right" timestamp="1617814267635">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="385" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1617813092136" />
-    <state width="1802" height="385" key="GridCell.Tab.1.bottom" timestamp="1617813092145">
+    <state width="1802" height="504" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1617814267635" />
+    <state width="1802" height="504" key="GridCell.Tab.1.bottom" timestamp="1617814267638">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="385" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1617813092145" />
-    <state width="1802" height="385" key="GridCell.Tab.1.center" timestamp="1617813092144">
+    <state width="1802" height="504" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1617814267638" />
+    <state width="1802" height="504" key="GridCell.Tab.1.center" timestamp="1617814267637">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="385" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1617813092144" />
-    <state width="1802" height="385" key="GridCell.Tab.1.left" timestamp="1617813092144">
+    <state width="1802" height="504" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1617814267637" />
+    <state width="1802" height="504" key="GridCell.Tab.1.left" timestamp="1617814267636">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="385" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1617813092144" />
-    <state width="1802" height="385" key="GridCell.Tab.1.right" timestamp="1617813092145">
+    <state width="1802" height="504" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1617814267636" />
+    <state width="1802" height="504" key="GridCell.Tab.1.right" timestamp="1617814267637">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="385" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1617813092145" />
+    <state width="1802" height="504" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1617814267637" />
     <state x="305" y="155" width="1372" height="803" key="new project wizard" timestamp="1617295632141">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
